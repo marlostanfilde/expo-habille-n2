@@ -231,6 +231,11 @@ img {
   gap: 0;
 }
 
+.mobile-menu-main.is-hidden,
+.mobile-submenu.is-hidden {
+  display: none;
+}
+
 .hero {
   min-height: 520px;
   background:
