@@ -10,11 +10,11 @@ const backToMainMenu = document.getElementById("backToMainMenu");
 
 function resetMobileSubmenu() {
   if (mobileMenuMain) {
-    mobileMenuMain.hidden = false;
+    mobileMenuMain.classList.remove("is-hidden");
   }
 
   if (pretaporterSubmenu) {
-    pretaporterSubmenu.hidden = true;
+    pretaporterSubmenu.classList.add("is-hidden");
   }
 
   if (pretaporterToggle) {
@@ -25,8 +25,8 @@ function resetMobileSubmenu() {
 function openPretaporterSubmenu() {
   if (!mobileMenuMain || !pretaporterSubmenu || !pretaporterToggle) return;
 
-  mobileMenuMain.hidden = true;
-  pretaporterSubmenu.hidden = false;
+  mobileMenuMain.classList.add("is-hidden");
+  pretaporterSubmenu.classList.remove("is-hidden");
   pretaporterToggle.setAttribute("aria-expanded", "true");
 }
 
@@ -65,7 +65,9 @@ function toggleSearch() {
   const isOpen = searchBar.classList.toggle("active");
   searchToggle.setAttribute("aria-expanded", String(isOpen));
 
-  if (isOpen) closeMenu();
+  if (isOpen) {
+    closeMenu();
+  }
 }
 
 if (menuToggle && mobileMenu) {
