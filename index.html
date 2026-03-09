@@ -59,14 +59,44 @@
       <button type="button">Rechercher</button>
     </div>
 
-   <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
-  <a href="index.html">Accueil</a>
-  <a href="#pretaporter">Prêt à porter</a>
-  <a href="#chaussures">Chaussures</a>
-  <a href="#accessoires">Accessoires</a>
-  <a href="compte.html">Créer un compte</a>
-  <a href="panier.html">Voir le panier</a>
-</nav>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
+      <div class="mobile-menu-main" id="mobileMenuMain">
+        <a href="index.html">Accueil</a>
+
+        <button
+          class="mobile-submenu-toggle"
+          id="pretaporterToggle"
+          type="button"
+          aria-controls="pretaporterSubmenu"
+          aria-expanded="false"
+        >
+          Prêt à porter
+        </button>
+
+        <a href="#chaussures">Chaussures</a>
+        <a href="#accessoires">Accessoires</a>
+        <a href="compte.html">Créer un compte</a>
+        <a href="panier.html">Voir le panier</a>
+      </div>
+
+      <div class="mobile-submenu" id="pretaporterSubmenu" hidden>
+        <button
+          class="mobile-back-btn"
+          id="backToMainMenu"
+          type="button"
+        >
+          ← Retour
+        </button>
+
+        <a href="#tshirts">T-shirts</a>
+        <a href="#polos">Polos</a>
+        <a href="#jeans">Jeans</a>
+        <a href="#pantalons">Pantalons</a>
+        <a href="#shorts">Shorts</a>
+        <a href="#pulls">Pulls</a>
+      </div>
+    </nav>
+
     <section class="hero">
       <div class="hero-content">
         <span class="hero-kicker">Maison Soulery</span>
