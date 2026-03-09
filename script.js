@@ -122,10 +122,10 @@ if (mobileMenu) {
   });
 }
 
-const USERS_KEY = "soulery_users";
-const CURRENT_USER_KEY = "soulery_current_user";
-const CART_KEY = "soulery_cart";
-const PROMO_KEY = "soulery_promo";
+const USERS_KEY = "modeldexpo_users";
+const CURRENT_USER_KEY = "modeldexpo_current_user";
+const CART_KEY = "modeldexpo_cart";
+const PROMO_KEY = "modeldexpo_promo";
 
 function getUsers() {
   return JSON.parse(localStorage.getItem(USERS_KEY)) || [];
@@ -401,7 +401,7 @@ function renderLoggedInView(root, user) {
       <div class="account-box">
         <div class="account-box-head">
           <h2>Mon espace</h2>
-          <p>Vous êtes connecté à votre compte Soulery.</p>
+          <p>Vous êtes connecté à votre compte MODEL D'EXPO.</p>
         </div>
 
         <div class="form-card pro-form">
@@ -467,7 +467,7 @@ function initCartPage() {
     promoButton.addEventListener("click", () => {
       const code = promoInput.value.trim().toUpperCase();
 
-      if (code === "SOULERY10") {
+      if (code === "MODELEXPO10") {
         savePromo({ code, percent: 10 });
         renderCartPage();
         showToast("Code promo appliqué : -10%");
@@ -497,7 +497,7 @@ function renderCartPage() {
     cartContainer.innerHTML = `
       <div class="page-card">
         <h2>Votre panier est vide</h2>
-        <p>Ajoutez des pièces Soulery pour commencer votre sélection.</p>
+        <p>Ajoutez des pièces MODEL D'EXPO pour commencer votre sélection.</p>
         <div class="page-actions">
           <a href="index.html" class="btn">Découvrir la collection</a>
         </div>
@@ -523,7 +523,7 @@ function renderCartPage() {
 
             <div class="cart-item-info">
               <h2>${item.name}</h2>
-              <p>${item.category || "Collection Soulery"}</p>
+              <p>${item.category || "Collection MODEL D'EXPO"}</p>
               <button class="remove-btn" type="button" data-remove="${item.id}">
                 Supprimer
               </button>
