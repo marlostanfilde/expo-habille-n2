@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panier - Soulery</title>
-  <link rel="stylesheet" href="./style.css?v=8" />
-  <script src="./script.js?v=8" defer></script>
+  <link rel="stylesheet" href="./style.css?v=9" />
+  <script src="./script.js?v=9" defer></script>
 </head>
 <body>
   <div class="site-wrap">
@@ -48,9 +48,10 @@
 
       <div class="header-right">
         <a href="compte.html" class="icon-btn icon-link" aria-label="Compte">👤</a>
+
         <a href="panier.html" class="icon-btn cart-btn icon-link" aria-label="Panier">
           🛍
-          <span class="cart-count">2</span>
+          <span class="cart-count">0</span>
         </a>
       </div>
     </header>
@@ -76,63 +77,20 @@
 
       <div class="cart-layout">
 
-        <div class="cart-main">
-          <div class="cart-item">
-            <div class="cart-item-image">Sneaker</div>
-
-            <div class="cart-item-info">
-              <h2>Sneaker premium</h2>
-              <p>Pointure : 42</p>
-              <p>Couleur : Blanc cassé</p>
-              <button class="remove-btn" type="button">Supprimer</button>
-            </div>
-
-            <div class="cart-item-qty">
-              <label for="qty1">Quantité</label>
-              <select id="qty1">
-                <option>1</option>
-                <option selected>2</option>
-                <option>3</option>
-              </select>
-            </div>
-
-            <div class="cart-item-price">300,00 €</div>
-          </div>
-
-          <div class="cart-item">
-            <div class="cart-item-image">Costume</div>
-
-            <div class="cart-item-info">
-              <h2>Costume slim</h2>
-              <p>Taille : 50</p>
-              <p>Couleur : Noir</p>
-              <button class="remove-btn" type="button">Supprimer</button>
-            </div>
-
-            <div class="cart-item-qty">
-              <label for="qty2">Quantité</label>
-              <select id="qty2">
-                <option selected>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
-            </div>
-
-            <div class="cart-item-price">499,00 €</div>
-          </div>
-
-          <div class="cart-note">
-            <p>Besoin d’aide ? Notre service client vous accompagne dans votre commande et vos choix de tailles.</p>
-          </div>
-        </div>
+        <div class="cart-main"></div>
 
         <aside class="cart-summary">
           <div class="summary-card">
             <h2>Résumé</h2>
 
             <div class="summary-row">
+              <span>Articles</span>
+              <strong data-cart-label="count">0 article</strong>
+            </div>
+
+            <div class="summary-row">
               <span>Sous-total</span>
-              <strong>799,00 €</strong>
+              <strong data-summary="subtotal">0,00 €</strong>
             </div>
 
             <div class="summary-row">
@@ -142,20 +100,20 @@
 
             <div class="summary-row">
               <span>Réduction</span>
-              <strong>0,00 €</strong>
+              <strong data-summary="discount">0,00 €</strong>
             </div>
 
             <div class="promo-box">
               <label for="promo">Code promo</label>
               <div class="promo-line">
                 <input type="text" id="promo" placeholder="Entrer un code" />
-                <button type="button" class="btn dark">Appliquer</button>
+                <button type="button" class="btn dark apply-promo-btn">Appliquer</button>
               </div>
             </div>
 
             <div class="summary-total">
               <span>Total</span>
-              <strong>799,00 €</strong>
+              <strong data-summary="total">0,00 €</strong>
             </div>
 
             <button class="btn dark full-btn" type="button">Passer la commande</button>
