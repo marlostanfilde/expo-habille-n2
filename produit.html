@@ -9,34 +9,14 @@
 </head>
 <body>
   <div class="site-wrap">
-
     <div class="topbar">
       Bienvenue chez Soulery | Livraison offerte dans toute la France
     </div>
 
     <header class="header">
       <div class="header-left">
-        <button
-          class="icon-btn"
-          id="menuToggle"
-          aria-label="Ouvrir le menu"
-          aria-controls="mobileMenu"
-          aria-expanded="false"
-          type="button"
-        >
-          ☰
-        </button>
-
-        <button
-          class="icon-btn"
-          id="searchToggle"
-          aria-label="Ouvrir la recherche"
-          aria-controls="searchBar"
-          aria-expanded="false"
-          type="button"
-        >
-          ⌕
-        </button>
+        <button class="icon-btn" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="mobileMenu" aria-expanded="false" type="button">☰</button>
+        <button class="icon-btn" id="searchToggle" aria-label="Ouvrir la recherche" aria-controls="searchBar" aria-expanded="false" type="button">⌕</button>
       </div>
 
       <div class="logo-wrap">
@@ -81,7 +61,6 @@
       </div>
 
       <div class="product-page">
-
         <div class="product-gallery">
           <div class="product-main-image" id="productMainImage">Sneaker</div>
 
@@ -163,7 +142,6 @@
             <div class="product-benefit">Conseil personnalisé en boutique</div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -204,7 +182,16 @@
           <h3>Costume slim</h3>
           <p class="price">499,00 €</p>
           <p class="card-text">Une coupe moderne et structurée pour les grandes occasions.</p>
-          <a href="produit-costume.html" class="btn small-btn">Voir le produit</a>
+          <a
+            href="panier.html"
+            class="btn small-btn add-to-cart-btn"
+            data-name="Costume slim"
+            data-price="499"
+            data-category="Cérémonie"
+            data-image="Costume"
+          >
+            Ajouter au panier
+          </a>
         </article>
 
         <article class="card">
@@ -212,7 +199,16 @@
           <h3>Mocassin daim</h3>
           <p class="price">690,00 €</p>
           <p class="card-text">Une pièce raffinée, pensée pour un vestiaire exigeant.</p>
-          <a href="produit-mocassin.html" class="btn small-btn">Voir le produit</a>
+          <a
+            href="panier.html"
+            class="btn small-btn add-to-cart-btn"
+            data-name="Mocassin daim"
+            data-price="690"
+            data-category="Cuir & style"
+            data-image="Mocassin"
+          >
+            Ajouter au panier
+          </a>
         </article>
 
         <article class="card">
@@ -220,7 +216,16 @@
           <h3>Ceinture signature</h3>
           <p class="price">120,00 €</p>
           <p class="card-text">Un essentiel élégant pour structurer la silhouette.</p>
-          <a href="produit-ceinture.html" class="btn small-btn">Voir le produit</a>
+          <a
+            href="panier.html"
+            class="btn small-btn add-to-cart-btn"
+            data-name="Ceinture signature"
+            data-price="120"
+            data-category="Accessoires"
+            data-image="Ceinture"
+          >
+            Ajouter au panier
+          </a>
         </article>
       </div>
     </section>
@@ -228,7 +233,6 @@
     <footer class="footer">
       <p>© 2026 SOULERY - Tous droits réservés</p>
     </footer>
-
   </div>
 </body>
 </html>
