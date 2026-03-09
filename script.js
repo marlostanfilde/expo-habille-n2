@@ -3,10 +3,14 @@ const mobileMenu = document.getElementById("mobileMenu");
 const searchToggle = document.getElementById("searchToggle");
 const searchBar = document.getElementById("searchBar");
 
-menuToggle.addEventListener("click", () => {
-  mobileMenu.classList.toggle("active");
-});
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  });
+}
 
-searchToggle.addEventListener("click", () => {
-  searchBar.classList.toggle("active");
-});
+if (searchToggle && searchBar) {
+  searchToggle.addEventListener("click", () => {
+    searchBar.classList.toggle("active");
+  });
+}
