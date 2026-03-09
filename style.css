@@ -7,7 +7,7 @@
 body {
   font-family: Arial, sans-serif;
   color: #111;
-  background: linear-gradient(180deg, #f3f3f3 0%, #e8e8e8 100%);
+  background: #dcdcdc;
 }
 
 a {
@@ -22,8 +22,8 @@ input {
 
 .site-wrap {
   width: 100%;
-  max-width: 1200px;
-  margin: 30px auto;
+  max-width: 1000px;
+  margin: 10px auto;
   background: white;
   min-height: 100vh;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
@@ -33,12 +33,12 @@ input {
 
 .topbar {
   text-align: center;
-  font-size: 12px;
-  color: #555;
+  font-size: 20px;
+  color: white;
   padding: 12px 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
-  background: #fafafa;
+  background: red;
 }
 
 .header {
