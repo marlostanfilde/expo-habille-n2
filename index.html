@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Soulery</title>
-  <link rel="stylesheet" href="./style.css?v=6" />
+  <link rel="stylesheet" href="./style.css?v=7" />
+  <script src="./script.js?v=7" defer></script>
 </head>
 <body>
   <div class="site-wrap">
@@ -15,12 +16,31 @@
 
     <header class="header">
       <div class="header-left">
-        <button class="icon-btn" id="menuToggle" aria-label="Menu">☰</button>
-        <button class="icon-btn" id="searchToggle" aria-label="Recherche">⌕</button>
+        <button
+          class="icon-btn"
+          id="menuToggle"
+          aria-label="Ouvrir le menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+          type="button"
+        >
+          ☰
+        </button>
+
+        <button
+          class="icon-btn"
+          id="searchToggle"
+          aria-label="Ouvrir la recherche"
+          aria-controls="searchBar"
+          aria-expanded="false"
+          type="button"
+        >
+          ⌕
+        </button>
       </div>
 
       <div class="logo-wrap">
-        <a href="index.html" class="logo-link">
+        <a href="index.html" class="logo-link" aria-label="Retour à l'accueil Soulery">
           <div class="logo">SOULERY</div>
           <div class="logo-sub">depuis 1897</div>
         </a>
@@ -37,56 +57,63 @@
     </header>
 
     <div class="search-bar" id="searchBar">
-      <input type="text" placeholder="Rechercher un produit..." />
-      <button>OK</button>
+      <input type="text" placeholder="Rechercher un produit..." aria-label="Rechercher un produit" />
+      <button type="button">Rechercher</button>
     </div>
 
-    <nav class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
       <a href="index.html">Accueil</a>
-      <a href="#">Collection</a>
-      <a href="#">Cérémonie</a>
-      <a href="#">Prêt à porter</a>
-      <a href="#">Chaussures</a>
-      <a href="#">Accessoires</a>
+      <a href="#produits">Collection</a>
+      <a href="#ceremonie">Cérémonie</a>
+      <a href="#pretaporter">Prêt à porter</a>
+      <a href="#chaussures">Chaussures</a>
+      <a href="#accessoires">Accessoires</a>
       <a href="compte.html">Créer un compte</a>
       <a href="panier.html">Voir le panier</a>
     </nav>
 
     <section class="hero">
       <div class="hero-content">
+        <span class="hero-kicker">Maison Soulery</span>
         <h1>Nouvelle collection homme</h1>
-        <p>Mode, chaussures, accessoires et pièces cérémonie</p>
+        <p>Mode, chaussures, accessoires et pièces cérémonie au style intemporel.</p>
         <a href="#produits" class="btn">Voir la sélection</a>
       </div>
     </section>
 
     <section class="products" id="produits">
-      <h2>Sélection produits</h2>
+      <h2>Notre sélection</h2>
 
       <div class="product-grid">
-        <div class="card">
+        <article class="card" id="chaussures">
+          <span class="card-tag">Chaussures</span>
           <h3>Sneaker premium</h3>
-          <p>150,00 €</p>
+          <p class="price">150,00 €</p>
+          <p class="card-text">Une silhouette épurée pensée pour le quotidien et les tenues habillées.</p>
           <a href="panier.html" class="btn small-btn">Ajouter au panier</a>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card" id="ceremonie">
+          <span class="card-tag">Cérémonie</span>
           <h3>Costume slim</h3>
-          <p>499,00 €</p>
+          <p class="price">499,00 €</p>
+          <p class="card-text">Une coupe moderne, structurée et élégante pour les grands moments.</p>
           <a href="panier.html" class="btn small-btn">Ajouter au panier</a>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card" id="accessoires">
+          <span class="card-tag">Cuir & style</span>
           <h3>Mocassin daim</h3>
-          <p>690,00 €</p>
+          <p class="price">690,00 €</p>
+          <p class="card-text">Un classique raffiné en daim souple, au confort durable et au tombé impeccable.</p>
           <a href="panier.html" class="btn small-btn">Ajouter au panier</a>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section class="appointment">
+    <section class="appointment" id="pretaporter">
       <h2>Prendre rendez-vous</h2>
-      <p>Profitez d’un accompagnement personnalisé</p>
+      <p>Profitez d’un accompagnement personnalisé en boutique pour choisir la pièce idéale.</p>
       <a href="compte.html" class="btn dark">Réserver</a>
     </section>
 
@@ -95,7 +122,5 @@
     </footer>
 
   </div>
-
-  <script src="./script.js?v=6"></script>
 </body>
 </html>
