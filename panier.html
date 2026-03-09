@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panier - Soulery</title>
-  <link rel="stylesheet" href="./style.css?v=6" />
+  <link rel="stylesheet" href="./style.css?v=7" />
 </head>
 <body>
   <div class="site-wrap">
@@ -31,27 +31,67 @@
     </header>
 
     <section class="page-section">
+      <p class="page-kicker">Votre sélection</p>
       <h1 class="page-title">Mon panier</h1>
 
-      <div class="page-card">
-        <h2>Sneaker premium</h2>
-        <p>Quantité : 1</p>
-        <p>Prix : 150,00 €</p>
-      </div>
+      <div class="cart-layout">
+        <div class="cart-items">
+          <article class="cart-item">
+            <div class="cart-item-image"></div>
+            <div class="cart-item-info">
+              <p class="cart-item-brand">Soulery Collection</p>
+              <h2>Sneaker premium</h2>
+              <p class="cart-item-meta">Couleur : Beige · Taille : 42</p>
+              <div class="cart-qty">
+                <button>-</button>
+                <span>1</span>
+                <button>+</button>
+              </div>
+            </div>
+            <div class="cart-item-price">150,00 €</div>
+          </article>
 
-      <div class="page-card">
-        <h2>Costume slim</h2>
-        <p>Quantité : 1</p>
-        <p>Prix : 499,00 €</p>
-      </div>
+          <article class="cart-item">
+            <div class="cart-item-image"></div>
+            <div class="cart-item-info">
+              <p class="cart-item-brand">Soulery Ceremony</p>
+              <h2>Costume slim</h2>
+              <p class="cart-item-meta">Couleur : Noir · Taille : 50</p>
+              <div class="cart-qty">
+                <button>-</button>
+                <span>1</span>
+                <button>+</button>
+              </div>
+            </div>
+            <div class="cart-item-price">499,00 €</div>
+          </article>
+        </div>
 
-      <div class="page-total">
-        <strong>Total : 649,00 €</strong>
-      </div>
+        <aside class="cart-summary">
+          <h2>Résumé</h2>
 
-      <div class="page-actions">
-        <a href="index.html" class="btn">Continuer mes achats</a>
-        <a href="compte.html" class="btn dark">Commander</a>
+          <div class="summary-row">
+            <span>Sous-total</span>
+            <span>649,00 €</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Livraison</span>
+            <span>Offerte</span>
+          </div>
+
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <span>649,00 €</span>
+          </div>
+
+          <a href="compte.html" class="btn dark full-link-btn">Passer commande</a>
+          <a href="index.html" class="btn full-link-btn">Continuer mes achats</a>
+
+          <p class="summary-note">
+            Paiement sécurisé · Livraison rapide · Retours simplifiés
+          </p>
+        </aside>
       </div>
     </section>
 
