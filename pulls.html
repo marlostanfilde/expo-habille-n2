@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulls - Soulery</title>
+  <link rel="stylesheet" href="./style.css?v=12" />
+  <script src="./script.js?v=12" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <div class="topbar">Bienvenue chez Soulery | Livraison offerte dans toute la France</div>
+
+    <header class="header">
+      <div class="header-left">
+        <button class="icon-btn" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="mobileMenu" aria-expanded="false" type="button">☰</button>
+        <button class="icon-btn" id="searchToggle" aria-label="Ouvrir la recherche" aria-controls="searchBar" aria-expanded="false" type="button">⌕</button>
+      </div>
+      <div class="logo-wrap">
+        <a href="index.html" class="logo-link" aria-label="Retour à l'accueil Soulery">
+          <div class="logo">SOULERY</div>
+          <div class="logo-sub">depuis 1897</div>
+        </a>
+      </div>
+      <div class="header-right">
+        <a href="compte.html" class="icon-btn icon-link" aria-label="Compte">👤</a>
+        <a href="panier.html" class="icon-btn cart-btn icon-link" aria-label="Panier">🛍<span class="cart-count">0</span></a>
+      </div>
+    </header>
+
+    <div class="search-bar" id="searchBar">
+      <input type="text" placeholder="Rechercher un produit..." aria-label="Rechercher un produit" />
+      <button type="button">Rechercher</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
+      <div class="mobile-menu-main" id="mobileMenuMain">
+        <a href="index.html">Accueil</a>
+        <button class="mobile-submenu-toggle" id="pretaporterToggle" type="button" aria-controls="pretaporterSubmenu" aria-expanded="false">Prêt à porter</button>
+        <a href="index.html#chaussures">Chaussures</a>
+        <a href="index.html#accessoires">Accessoires</a>
+        <a href="compte.html">Créer un compte</a>
+        <a href="panier.html">Voir le panier</a>
+      </div>
+      <div class="mobile-submenu is-hidden" id="pretaporterSubmenu">
+        <button class="mobile-back-btn" id="backToMainMenu" type="button">← Retour</button>
+        <a href="tshirts.html">T-shirts</a>
+        <a href="polos.html">Polo</a>
+        <a href="jeans.html">Jean</a>
+        <a href="pantalons.html">Pantalon</a>
+        <a href="shorts.html">Short</a>
+        <a href="pulls.html">Pull</a>
+      </div>
+    </nav>
+
+    <section class="page-section">
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a>
+        <span>/</span>
+        <span>Pulls</span>
+      </div>
+
+      <h1 class="page-title">Pulls</h1>
+
+      <div class="product-grid">
+        <article class="card">
+          <span class="card-tag">Maille</span>
+          <h3>Pull col rond</h3>
+          <p class="price">99,00 €</p>
+          <p class="card-text">Une pièce essentielle à la maille douce et structurée.</p>
+          <a href="panier.html" class="btn small-btn add-to-cart-btn" data-name="Pull col rond" data-price="99" data-category="Pulls" data-image="Pull">Ajouter au panier</a>
+        </article>
+
+        <article class="card">
+          <span class="card-tag">Maille</span>
+          <h3>Pull fin premium</h3>
+          <p class="price">115,00 €</p>
+          <p class="card-text">Une silhouette élégante pour les looks de mi-saison.</p>
+          <a href="panier.html" class="btn small-btn add-to-cart-btn" data-name="Pull fin premium" data-price="115" data-category="Pulls" data-image="Pull">Ajouter au panier</a>
+        </article>
+
+        <article class="card">
+          <span class="card-tag">Maille</span>
+          <h3>Pull signature</h3>
+          <p class="price">129,00 €</p>
+          <p class="card-text">Un essentiel chic avec finitions haut de gamme.</p>
+          <a href="panier.html" class="btn small-btn add-to-cart-btn" data-name="Pull signature" data-price="129" data-category="Pulls" data-image="Pull">Ajouter au panier</a>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 SOULERY - Tous droits réservés</p>
+    </footer>
+  </div>
+</body>
+</html>
