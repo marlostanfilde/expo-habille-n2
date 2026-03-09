@@ -13,14 +13,29 @@
   </div>
 
   <header class="header">
+    <div class="header-left">
+      <button class="header-btn search-btn" id="searchToggle" aria-label="Rechercher un produit">
+        Recherche
+      </button>
+    </div>
+
     <div class="logo">SOULERY</div>
 
-    <button class="hamburger" id="menuToggle" aria-label="Ouvrir le menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <div class="header-right">
+      <a href="#" class="header-btn account-btn">Créer un compte</a>
+
+      <button class="hamburger" id="menuToggle" aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </header>
+
+  <div class="search-bar" id="searchBar">
+    <input type="text" placeholder="Rechercher un produit..." />
+    <button>OK</button>
+  </div>
 
   <nav class="mobile-menu" id="mobileMenu">
     <a href="#">Collection</a>
@@ -40,7 +55,7 @@
 
   <section class="products">
     <h2>Sélection produits</h2>
-
+   
   <section class="appointment">
     <h2>Prendre rendez-vous</h2>
     <p>Profitez d’un accompagnement personnalisé</p>
