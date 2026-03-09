@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Soulery</title>
- <link rel="stylesheet" href="./style.css?v=5" />
+  <link rel="stylesheet" href="./style.css?v=6" />
 </head>
 <body>
   <div class="site-wrap">
@@ -20,16 +20,19 @@
       </div>
 
       <div class="logo-wrap">
-        <div class="logo">SOULERY</div>
-        <div class="logo-sub">depuis 1897</div>
+        <a href="index.html" class="logo-link">
+          <div class="logo">SOULERY</div>
+          <div class="logo-sub">depuis 1897</div>
+        </a>
       </div>
 
       <div class="header-right">
-        <button class="icon-btn" aria-label="Compte">👤</button>
-        <button class="icon-btn cart-btn" aria-label="Panier">
+        <a href="compte.html" class="icon-btn icon-link" aria-label="Compte">👤</a>
+
+        <a href="panier.html" class="icon-btn cart-btn icon-link" aria-label="Panier">
           🛍
           <span class="cart-count">0</span>
-        </button>
+        </a>
       </div>
     </header>
 
@@ -39,38 +42,44 @@
     </div>
 
     <nav class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Accueil</a>
       <a href="#">Collection</a>
       <a href="#">Cérémonie</a>
       <a href="#">Prêt à porter</a>
       <a href="#">Chaussures</a>
       <a href="#">Accessoires</a>
+      <a href="compte.html">Créer un compte</a>
+      <a href="panier.html">Voir le panier</a>
     </nav>
 
     <section class="hero">
       <div class="hero-content">
         <h1>Nouvelle collection homme</h1>
         <p>Mode, chaussures, accessoires et pièces cérémonie</p>
-        <a href="#" class="btn">Voir la sélection</a>
+        <a href="#produits" class="btn">Voir la sélection</a>
       </div>
     </section>
 
-    <section class="products">
+    <section class="products" id="produits">
       <h2>Sélection produits</h2>
 
       <div class="product-grid">
         <div class="card">
           <h3>Sneaker premium</h3>
           <p>150,00 €</p>
+          <a href="panier.html" class="btn small-btn">Ajouter au panier</a>
         </div>
 
         <div class="card">
           <h3>Costume slim</h3>
           <p>499,00 €</p>
+          <a href="panier.html" class="btn small-btn">Ajouter au panier</a>
         </div>
 
         <div class="card">
           <h3>Mocassin daim</h3>
           <p>690,00 €</p>
+          <a href="panier.html" class="btn small-btn">Ajouter au panier</a>
         </div>
       </div>
     </section>
@@ -78,7 +87,7 @@
     <section class="appointment">
       <h2>Prendre rendez-vous</h2>
       <p>Profitez d’un accompagnement personnalisé</p>
-      <a href="#" class="btn dark">Réserver</a>
+      <a href="compte.html" class="btn dark">Réserver</a>
     </section>
 
     <footer class="footer">
@@ -87,6 +96,6 @@
 
   </div>
 
-  <script src="./script.js?v=5"></script>
+  <script src="./script.js?v=6"></script>
 </body>
 </html>
