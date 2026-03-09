@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sneaker premium - Soulery</title>
+  <link rel="stylesheet" href="./style.css?v=10" />
+  <script src="./script.js?v=10" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+
+    <div class="topbar">
+      Bienvenue chez Soulery | Livraison offerte dans toute la France
+    </div>
+
+    <header class="header">
+      <div class="header-left">
+        <button
+          class="icon-btn"
+          id="menuToggle"
+          aria-label="Ouvrir le menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+          type="button"
+        >
+          ☰
+        </button>
+
+        <button
+          class="icon-btn"
+          id="searchToggle"
+          aria-label="Ouvrir la recherche"
+          aria-controls="searchBar"
+          aria-expanded="false"
+          type="button"
+        >
+          ⌕
+        </button>
+      </div>
+
+      <div class="logo-wrap">
+        <a href="index.html" class="logo-link" aria-label="Retour à l'accueil Soulery">
+          <div class="logo">SOULERY</div>
+          <div class="logo-sub">depuis 1897</div>
+        </a>
+      </div>
+
+      <div class="header-right">
+        <a href="compte.html" class="icon-btn icon-link" aria-label="Compte">👤</a>
+        <a href="panier.html" class="icon-btn cart-btn icon-link" aria-label="Panier">
+          🛍
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="search-bar" id="searchBar">
+      <input type="text" placeholder="Rechercher un produit..." aria-label="Rechercher un produit" />
+      <button type="button">Rechercher</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#produits">Collection</a>
+      <a href="index.html#ceremonie">Cérémonie</a>
+      <a href="index.html#pretaporter">Prêt à porter</a>
+      <a href="index.html#chaussures">Chaussures</a>
+      <a href="index.html#accessoires">Accessoires</a>
+      <a href="compte.html">Créer un compte</a>
+      <a href="panier.html">Voir le panier</a>
+    </nav>
+
+    <section class="page-section">
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a>
+        <span>/</span>
+        <a href="index.html#produits">Collection</a>
+        <span>/</span>
+        <span>Sneaker premium</span>
+      </div>
+
+      <div class="product-page">
+
+        <div class="product-gallery">
+          <div class="product-main-image" id="productMainImage">Sneaker</div>
+
+          <div class="product-thumbs">
+            <button class="product-thumb active" type="button" data-image="Sneaker">Sneaker</button>
+            <button class="product-thumb" type="button" data-image="Profil">Profil</button>
+            <button class="product-thumb" type="button" data-image="Détail">Détail</button>
+          </div>
+        </div>
+
+        <div class="product-details">
+          <span class="product-badge">Nouvelle collection</span>
+          <h1 class="product-title">Sneaker premium</h1>
+
+          <div class="product-price-line">
+            <span class="product-price">150,00 €</span>
+            <span class="product-tax">TTC</span>
+          </div>
+
+          <p class="product-description">
+            La Sneaker premium Soulery associe lignes épurées, confort quotidien et finitions soignées.
+            Pensée pour accompagner un vestiaire habillé comme des silhouettes plus décontractées.
+          </p>
+
+          <div class="product-meta">
+            <div class="product-meta-row">
+              <span>Référence</span>
+              <strong>SLR-SNK-001</strong>
+            </div>
+            <div class="product-meta-row">
+              <span>Couleur</span>
+              <strong>Blanc cassé</strong>
+            </div>
+            <div class="product-meta-row">
+              <span>Matière</span>
+              <strong>Cuir premium</strong>
+            </div>
+          </div>
+
+          <div class="product-option">
+            <label for="product-size">Pointure</label>
+            <select id="product-size">
+              <option value="">Choisir une pointure</option>
+              <option>40</option>
+              <option>41</option>
+              <option>42</option>
+              <option>43</option>
+              <option>44</option>
+            </select>
+          </div>
+
+          <div class="product-option">
+            <label for="product-qty">Quantité</label>
+            <select id="product-qty">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+          </div>
+
+          <div class="product-actions">
+            <button
+              type="button"
+              class="btn dark product-add-btn"
+              data-name="Sneaker premium"
+              data-price="150"
+              data-category="Chaussures"
+              data-image="Sneaker"
+            >
+              Ajouter au panier
+            </button>
+
+            <a href="panier.html" class="btn">Voir le panier</a>
+          </div>
+
+          <div class="product-benefits">
+            <div class="product-benefit">Livraison offerte en France</div>
+            <div class="product-benefit">Retours sous 14 jours</div>
+            <div class="product-benefit">Conseil personnalisé en boutique</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="product-extra">
+      <div class="product-extra-grid">
+        <div class="product-extra-card">
+          <h2>Description</h2>
+          <p>
+            Une sneaker élégante pensée pour un usage polyvalent. Sa ligne minimaliste permet
+            de l’associer à un pantalon tailleur, un jean brut ou un costume décontracté.
+          </p>
+        </div>
+
+        <div class="product-extra-card">
+          <h2>Livraison & retours</h2>
+          <p>
+            Livraison offerte dans toute la France. Retour possible sous 14 jours à compter
+            de la réception de votre commande.
+          </p>
+        </div>
+
+        <div class="product-extra-card">
+          <h2>Conseil taille</h2>
+          <p>
+            Nous recommandons votre pointure habituelle. Entre deux tailles, choisissez la plus grande
+            pour un confort optimal.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="products related-products">
+      <h2>Vous aimerez aussi</h2>
+
+      <div class="product-grid">
+        <article class="card">
+          <span class="card-tag">Cérémonie</span>
+          <h3>Costume slim</h3>
+          <p class="price">499,00 €</p>
+          <p class="card-text">Une coupe moderne et structurée pour les grandes occasions.</p>
+          <a href="produit-costume.html" class="btn small-btn">Voir le produit</a>
+        </article>
+
+        <article class="card">
+          <span class="card-tag">Cuir & style</span>
+          <h3>Mocassin daim</h3>
+          <p class="price">690,00 €</p>
+          <p class="card-text">Une pièce raffinée, pensée pour un vestiaire exigeant.</p>
+          <a href="produit-mocassin.html" class="btn small-btn">Voir le produit</a>
+        </article>
+
+        <article class="card">
+          <span class="card-tag">Accessoires</span>
+          <h3>Ceinture signature</h3>
+          <p class="price">120,00 €</p>
+          <p class="card-text">Un essentiel élégant pour structurer la silhouette.</p>
+          <a href="produit-ceinture.html" class="btn small-btn">Voir le produit</a>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 SOULERY - Tous droits réservés</p>
+    </footer>
+
+  </div>
+</body>
+</html>
