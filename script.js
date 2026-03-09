@@ -172,6 +172,7 @@ function createMessageBox(form) {
 function updateCartCount() {
   const cart = getCart();
   const count = cart.reduce((total, item) => total + item.quantity, 0);
+
   document.querySelectorAll(".cart-count").forEach((counter) => {
     counter.textContent = count;
   });
@@ -195,7 +196,7 @@ function addToCart(product) {
   const existingProduct = cart.find((item) => item.id === product.id);
 
   if (existingProduct) {
-    existingProduct.quantity += 1;
+    existingProduct.quantity += product.quantity || 1;
   } else {
     cart.push(product);
   }
@@ -395,6 +396,7 @@ function renderLoggedInView(root, user) {
   `;
 
   const logoutBtn = document.getElementById("logoutBtn");
+
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       logoutUser();
@@ -421,12 +423,12 @@ function initCartPage() {
       if (code === "SOULERY10") {
         savePromo({ code, percent: 10 });
         renderCartPage();
-        alert("Code promo appliqué : -10%");
+        showToast("Code promo appliqué : -10%");
       } else if (code === "") {
         clearPromo();
         renderCartPage();
       } else {
-        alert("Code promo invalide.");
+        showToast("Code promo invalide.");
       }
     });
   }
@@ -530,6 +532,8 @@ function attachCartEvents() {
       const cart = getCart().filter((item) => item.id !== id);
       saveCart(cart);
       renderCartPage();
+      updateCartCount();
+      showToast("Produit supprimé du panier.");
     });
   });
 
@@ -545,6 +549,7 @@ function attachCartEvents() {
       product.quantity = quantity;
       saveCart(cart);
       renderCartPage();
+      updateCartCount();
     });
   });
 }
@@ -572,9 +577,81 @@ function initSearch() {
     });
 
     if (!found) {
-      alert("Aucun produit trouvé pour cette recherche.");
+      showToast("Aucun produit trouvé pour cette recherche.");
     }
   });
+}
+
+function showToast(message) {
+  const existingToast = document.querySelector(".toast");
+
+  if (existingToast) {
+    existingToast.remove();
+  }
+
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 2200);
+}
+
+function initProductPage() {
+  const mainImage = document.getElementById("productMainImage");
+  const thumbs = document.querySelectorAll(".product-thumb");
+  const addButton = document.querySelector(".product-add-btn");
+  const sizeSelect = document.getElementById("product-size");
+  const qtySelect = document.getElementById("product-qty");
+
+  if (mainImage && thumbs.length) {
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener("click", () => {
+        thumbs.forEach((item) => item.classList.remove("active"));
+        thumb.classList.add("active");
+        mainImage.textContent = thumb.dataset.image || "Produit";
+      });
+    });
+  }
+
+  if (addButton) {
+    addButton.addEventListener("click", () => {
+      const name = addButton.dataset.name;
+      const price = Number(addButton.dataset.price);
+      const category = addButton.dataset.category || "";
+      const image = addButton.dataset.image || name;
+      const size = sizeSelect ? sizeSelect.value : "";
+      const quantity = qtySelect ? Number(qtySelect.value) : 1;
+
+      if (!size) {
+        showToast("Merci de choisir une pointure.");
+        return;
+      }
+
+      const cart = getCart();
+      const productId = `${slugify(name)}-${size}`;
+      const existingProduct = cart.find((item) => item.id === productId);
+
+      if (existingProduct) {
+        existingProduct.quantity += quantity;
+      } else {
+        cart.push({
+          id: productId,
+          name,
+          price,
+          category: `${category} · Taille ${size}`,
+          image,
+          quantity,
+        });
+      }
+
+      saveCart(cart);
+      updateCartCount();
+      showToast("Produit ajouté au panier.");
+    });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -584,4 +661,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initAccountPage();
   initCartPage();
   initSearch();
+  initProductPage();
 });
