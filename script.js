@@ -19,19 +19,15 @@ function closeSearch() {
 
 function toggleMenu() {
   if (!mobileMenu || !menuToggle) return;
-
   const isOpen = mobileMenu.classList.toggle("active");
   menuToggle.setAttribute("aria-expanded", String(isOpen));
-
   if (isOpen) closeSearch();
 }
 
 function toggleSearch() {
   if (!searchBar || !searchToggle) return;
-
   const isOpen = searchBar.classList.toggle("active");
   searchToggle.setAttribute("aria-expanded", String(isOpen));
-
   if (isOpen) closeMenu();
 }
 
@@ -74,17 +70,10 @@ document.addEventListener("keydown", (event) => {
 
 if (mobileMenu) {
   const menuLinks = mobileMenu.querySelectorAll("a");
-
   menuLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      closeMenu();
-    });
+    link.addEventListener("click", closeMenu);
   });
 }
-
-/* =========================
-   STORAGE
-========================= */
 
 const USERS_KEY = "soulery_users";
 const CURRENT_USER_KEY = "soulery_current_user";
@@ -131,12 +120,18 @@ function clearPromo() {
   localStorage.removeItem(PROMO_KEY);
 }
 
-/* =========================
-   HELPERS
-========================= */
-
 function formatPrice(value) {
   return `${value.toFixed(2).replace(".", ",")} €`;
+}
+
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\w\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
 }
 
 function showMessage(container, message, type = "success") {
@@ -174,6 +169,14 @@ function createMessageBox(form) {
   return box;
 }
 
+function updateCartCount() {
+  const cart = getCart();
+  const count = cart.reduce((total, item) => total + item.quantity, 0);
+  document.querySelectorAll(".cart-count").forEach((counter) => {
+    counter.textContent = count;
+  });
+}
+
 function updateAccountHeader() {
   const accountLinks = document.querySelectorAll('a[href="compte.html"]');
   const currentUser = getCurrentUser();
@@ -187,19 +190,47 @@ function updateAccountHeader() {
   });
 }
 
-function updateCartCount() {
+function addToCart(product) {
   const cart = getCart();
-  const count = cart.reduce((total, item) => total + item.quantity, 0);
-  const counters = document.querySelectorAll(".cart-count");
+  const existingProduct = cart.find((item) => item.id === product.id);
 
-  counters.forEach((counter) => {
-    counter.textContent = count;
-  });
+  if (existingProduct) {
+    existingProduct.quantity += 1;
+  } else {
+    cart.push(product);
+  }
+
+  saveCart(cart);
 }
 
-/* =========================
-   ACCOUNT PAGE
-========================= */
+function initProductButtons() {
+  const addButtons = document.querySelectorAll(".add-to-cart-btn");
+
+  addButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const name = button.dataset.name;
+      const price = Number(button.dataset.price);
+      const category = button.dataset.category || "";
+      const image = button.dataset.image || name;
+
+      if (!name || !price) return;
+
+      addToCart({
+        id: slugify(name),
+        name,
+        price,
+        category,
+        image,
+        quantity: 1,
+      });
+
+      updateCartCount();
+      window.location.href = "panier.html";
+    });
+  });
+}
 
 function initAccountPage() {
   const loginForm = document.querySelector(".login-form");
@@ -211,6 +242,7 @@ function initAccountPage() {
 
   if (currentUser) {
     renderLoggedInView(accountPageRoot, currentUser);
+    return;
   }
 
   if (registerForm) {
@@ -271,13 +303,12 @@ function initAccountPage() {
       saveUsers(users);
       saveCurrentUser(newUser);
       updateAccountHeader();
-
       showMessage(messageBox, "Compte créé avec succès. Vous êtes maintenant connecté.", "success");
       registerForm.reset();
 
       setTimeout(() => {
         renderLoggedInView(accountPageRoot, newUser);
-      }, 500);
+      }, 400);
     });
   }
 
@@ -304,13 +335,12 @@ function initAccountPage() {
 
       saveCurrentUser(user);
       updateAccountHeader();
-
       showMessage(messageBox, "Connexion réussie.", "success");
       loginForm.reset();
 
       setTimeout(() => {
         renderLoggedInView(accountPageRoot, user);
-      }, 500);
+      }, 400);
     });
   }
 }
@@ -365,7 +395,6 @@ function renderLoggedInView(root, user) {
   `;
 
   const logoutBtn = document.getElementById("logoutBtn");
-
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       logoutUser();
@@ -374,66 +403,6 @@ function renderLoggedInView(root, user) {
     });
   }
 }
-
-/* =========================
-   PRODUCTS / ADD TO CART
-========================= */
-
-function initProductButtons() {
-  const addButtons = document.querySelectorAll(".add-to-cart-btn");
-
-  addButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      event.preventDefault();
-
-      const name = button.dataset.name;
-      const price = Number(button.dataset.price);
-      const category = button.dataset.category || "";
-      const image = button.dataset.image || name;
-
-      if (!name || !price) return;
-
-      addToCart({
-        id: slugify(name),
-        name,
-        price,
-        category,
-        image,
-        quantity: 1,
-      });
-
-      updateCartCount();
-      alert(`${name} a été ajouté au panier.`);
-    });
-  });
-}
-
-function slugify(text) {
-  return text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^\w\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-");
-}
-
-function addToCart(product) {
-  const cart = getCart();
-  const existingProduct = cart.find((item) => item.id === product.id);
-
-  if (existingProduct) {
-    existingProduct.quantity += 1;
-  } else {
-    cart.push(product);
-  }
-
-  saveCart(cart);
-}
-
-/* =========================
-   CART PAGE
-========================= */
 
 function initCartPage() {
   const cartContainer = document.querySelector(".cart-main");
@@ -494,43 +463,45 @@ function renderCartPage() {
     return;
   }
 
-  cartContainer.innerHTML = cart
-    .map((item, index) => {
-      const itemTotal = item.price * item.quantity;
+  cartContainer.innerHTML =
+    cart
+      .map((item, index) => {
+        const itemTotal = item.price * item.quantity;
 
-      return `
-        <div class="cart-item" data-id="${item.id}">
-          <div class="cart-item-image">${item.image || item.name}</div>
+        return `
+          <div class="cart-item" data-id="${item.id}">
+            <div class="cart-item-image">${item.image || item.name}</div>
 
-          <div class="cart-item-info">
-            <h2>${item.name}</h2>
-            <p>${item.category || "Collection Soulery"}</p>
-            <button class="remove-btn" type="button" data-remove="${item.id}">
-              Supprimer
-            </button>
+            <div class="cart-item-info">
+              <h2>${item.name}</h2>
+              <p>${item.category || "Collection Soulery"}</p>
+              <button class="remove-btn" type="button" data-remove="${item.id}">
+                Supprimer
+              </button>
+            </div>
+
+            <div class="cart-item-qty">
+              <label for="qty-${index}">Quantité</label>
+              <select id="qty-${index}" data-qty="${item.id}">
+                ${[1, 2, 3, 4, 5]
+                  .map(
+                    (qty) =>
+                      `<option value="${qty}" ${qty === item.quantity ? "selected" : ""}>${qty}</option>`
+                  )
+                  .join("")}
+              </select>
+            </div>
+
+            <div class="cart-item-price">${formatPrice(itemTotal)}</div>
           </div>
-
-          <div class="cart-item-qty">
-            <label for="qty-${index}">Quantité</label>
-            <select id="qty-${index}" data-qty="${item.id}">
-              ${[1, 2, 3, 4, 5]
-                .map(
-                  (qty) =>
-                    `<option value="${qty}" ${qty === item.quantity ? "selected" : ""}>${qty}</option>`
-                )
-                .join("")}
-            </select>
-          </div>
-
-          <div class="cart-item-price">${formatPrice(itemTotal)}</div>
-        </div>
-      `;
-    })
-    .join(`
+        `;
+      })
+      .join("") +
+    `
       <div class="cart-note">
         <p>Besoin d’aide ? Notre service client vous accompagne dans votre commande et vos choix.</p>
       </div>
-    `);
+    `;
 
   attachCartEvents();
 
@@ -556,8 +527,7 @@ function attachCartEvents() {
   removeButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const id = button.dataset.remove;
-      let cart = getCart();
-      cart = cart.filter((item) => item.id !== id);
+      const cart = getCart().filter((item) => item.id !== id);
       saveCart(cart);
       renderCartPage();
     });
@@ -579,10 +549,6 @@ function attachCartEvents() {
   });
 }
 
-/* =========================
-   SEARCH
-========================= */
-
 function initSearch() {
   const searchInput = document.querySelector(".search-bar input");
   const searchButton = document.querySelector(".search-bar button");
@@ -591,10 +557,11 @@ function initSearch() {
 
   searchButton.addEventListener("click", () => {
     const query = searchInput.value.trim().toLowerCase();
-
     if (!query) return;
 
     const cards = document.querySelectorAll(".card");
+    if (!cards.length) return;
+
     let found = false;
 
     cards.forEach((card) => {
@@ -610,15 +577,11 @@ function initSearch() {
   });
 }
 
-/* =========================
-   INIT
-========================= */
-
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
   updateAccountHeader();
-  initAccountPage();
   initProductButtons();
+  initAccountPage();
   initCartPage();
   initSearch();
 });
