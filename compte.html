@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Compte - Soulery</title>
-  <link rel="stylesheet" href="./style.css?v=6" />
+  <title>Mon compte - Soulery</title>
+  <link rel="stylesheet" href="./style.css?v=8" />
+  <script src="./script.js?v=8" defer></script>
 </head>
 <body>
   <div class="site-wrap">
@@ -15,46 +16,124 @@
 
     <header class="header">
       <div class="header-left">
-        <a href="index.html" class="icon-btn icon-link" aria-label="Retour">←</a>
+        <button
+          class="icon-btn"
+          id="menuToggle"
+          aria-label="Ouvrir le menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+          type="button"
+        >
+          ☰
+        </button>
+
+        <button
+          class="icon-btn"
+          id="searchToggle"
+          aria-label="Ouvrir la recherche"
+          aria-controls="searchBar"
+          aria-expanded="false"
+          type="button"
+        >
+          ⌕
+        </button>
       </div>
 
       <div class="logo-wrap">
-        <a href="index.html" class="logo-link">
+        <a href="index.html" class="logo-link" aria-label="Retour à l'accueil Soulery">
           <div class="logo">SOULERY</div>
           <div class="logo-sub">depuis 1897</div>
         </a>
       </div>
 
       <div class="header-right">
+        <a href="compte.html" class="icon-btn icon-link" aria-label="Compte">👤</a>
         <a href="panier.html" class="icon-btn cart-btn icon-link" aria-label="Panier">
           🛍
-          <span class="cart-count">0</span>
+          <span class="cart-count">2</span>
         </a>
       </div>
     </header>
 
+    <div class="search-bar" id="searchBar">
+      <input type="text" placeholder="Rechercher un produit..." aria-label="Rechercher un produit" />
+      <button type="button">Rechercher</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#produits">Collection</a>
+      <a href="index.html#ceremonie">Cérémonie</a>
+      <a href="index.html#pretaporter">Prêt à porter</a>
+      <a href="index.html#chaussures">Chaussures</a>
+      <a href="index.html#accessoires">Accessoires</a>
+      <a href="compte.html">Créer un compte</a>
+      <a href="panier.html">Voir le panier</a>
+    </nav>
+
     <section class="page-section">
-      <h1 class="page-title">Créer un compte</h1>
+      <h1 class="page-title">Mon compte</h1>
 
-      <div class="form-card">
-        <label>Prénom</label>
-        <input type="text" placeholder="Votre prénom" />
+      <div class="account-layout">
 
-        <label>Nom</label>
-        <input type="text" placeholder="Votre nom" />
+        <div class="account-box">
+          <div class="account-box-head">
+            <h2>Connexion</h2>
+            <p>Accédez à votre espace client pour suivre vos commandes et gérer vos informations.</p>
+          </div>
 
-        <label>Email</label>
-        <input type="email" placeholder="Votre email" />
+          <form class="form-card pro-form">
+            <label for="login-email">Adresse e-mail</label>
+            <input type="email" id="login-email" placeholder="exemple@email.com" />
 
-        <label>Mot de passe</label>
-        <input type="password" placeholder="Votre mot de passe" />
+            <label for="login-password">Mot de passe</label>
+            <input type="password" id="login-password" placeholder="Votre mot de passe" />
 
-        <button class="btn dark full-btn">Créer mon compte</button>
+            <div class="form-row-inline">
+              <label class="checkbox-line">
+                <input type="checkbox" />
+                <span>Rester connecté</span>
+              </label>
+
+              <a href="#" class="text-link">Mot de passe oublié ?</a>
+            </div>
+
+            <button type="submit" class="btn dark full-btn">Se connecter</button>
+          </form>
+        </div>
+
+        <div class="account-box">
+          <div class="account-box-head">
+            <h2>Créer un compte</h2>
+            <p>Créez votre compte pour commander plus rapidement et profiter d’un suivi personnalisé.</p>
+          </div>
+
+          <form class="form-card pro-form">
+            <label for="register-firstname">Prénom</label>
+            <input type="text" id="register-firstname" placeholder="Votre prénom" />
+
+            <label for="register-lastname">Nom</label>
+            <input type="text" id="register-lastname" placeholder="Votre nom" />
+
+            <label for="register-email">Adresse e-mail</label>
+            <input type="email" id="register-email" placeholder="Votre adresse e-mail" />
+
+            <label for="register-password">Mot de passe</label>
+            <input type="password" id="register-password" placeholder="Créer un mot de passe" />
+
+            <label for="register-confirm-password">Confirmer le mot de passe</label>
+            <input type="password" id="register-confirm-password" placeholder="Confirmer le mot de passe" />
+
+            <label class="checkbox-line checkbox-start">
+              <input type="checkbox" />
+              <span>J’accepte les conditions générales et la politique de confidentialité.</span>
+            </label>
+
+            <button type="submit" class="btn full-btn">Créer mon compte</button>
+          </form>
+        </div>
+
       </div>
-
-      <p class="helper-text">
-        Vous avez déjà un compte ? <a href="#">Se connecter</a>
-      </p>
     </section>
 
     <footer class="footer">
