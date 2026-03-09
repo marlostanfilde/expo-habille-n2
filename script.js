@@ -3,10 +3,38 @@ const mobileMenu = document.getElementById("mobileMenu");
 const searchToggle = document.getElementById("searchToggle");
 const searchBar = document.getElementById("searchBar");
 
+const pretaporterToggle = document.getElementById("pretaporterToggle");
+const pretaporterSubmenu = document.getElementById("pretaporterSubmenu");
+const mobileMenuMain = document.getElementById("mobileMenuMain");
+const backToMainMenu = document.getElementById("backToMainMenu");
+
+function resetMobileSubmenu() {
+  if (mobileMenuMain) {
+    mobileMenuMain.hidden = false;
+  }
+
+  if (pretaporterSubmenu) {
+    pretaporterSubmenu.hidden = true;
+  }
+
+  if (pretaporterToggle) {
+    pretaporterToggle.setAttribute("aria-expanded", "false");
+  }
+}
+
+function openPretaporterSubmenu() {
+  if (!mobileMenuMain || !pretaporterSubmenu || !pretaporterToggle) return;
+
+  mobileMenuMain.hidden = true;
+  pretaporterSubmenu.hidden = false;
+  pretaporterToggle.setAttribute("aria-expanded", "true");
+}
+
 function closeMenu() {
   if (mobileMenu && menuToggle) {
     mobileMenu.classList.remove("active");
     menuToggle.setAttribute("aria-expanded", "false");
+    resetMobileSubmenu();
   }
 }
 
@@ -19,15 +47,24 @@ function closeSearch() {
 
 function toggleMenu() {
   if (!mobileMenu || !menuToggle) return;
+
   const isOpen = mobileMenu.classList.toggle("active");
   menuToggle.setAttribute("aria-expanded", String(isOpen));
-  if (isOpen) closeSearch();
+
+  if (isOpen) {
+    closeSearch();
+    resetMobileSubmenu();
+  } else {
+    resetMobileSubmenu();
+  }
 }
 
 function toggleSearch() {
   if (!searchBar || !searchToggle) return;
+
   const isOpen = searchBar.classList.toggle("active");
   searchToggle.setAttribute("aria-expanded", String(isOpen));
+
   if (isOpen) closeMenu();
 }
 
@@ -37,6 +74,14 @@ if (menuToggle && mobileMenu) {
 
 if (searchToggle && searchBar) {
   searchToggle.addEventListener("click", toggleSearch);
+}
+
+if (pretaporterToggle) {
+  pretaporterToggle.addEventListener("click", openPretaporterSubmenu);
+}
+
+if (backToMainMenu) {
+  backToMainMenu.addEventListener("click", resetMobileSubmenu);
 }
 
 document.addEventListener("click", (event) => {
@@ -655,6 +700,7 @@ function initProductPage() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  resetMobileSubmenu();
   updateCartCount();
   updateAccountHeader();
   initProductButtons();
