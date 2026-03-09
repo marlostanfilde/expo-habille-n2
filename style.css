@@ -202,16 +202,33 @@ img {
   display: flex;
 }
 
-.mobile-menu a {
+.mobile-menu a,
+.mobile-submenu-toggle,
+.mobile-back-btn {
+  width: 100%;
   padding: 13px 0;
   font-size: 16px;
+  border: none;
   border-bottom: 1px solid #f1ede6;
+  background: transparent;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
   transition: color 0.2s ease, padding-left 0.2s ease;
 }
 
-.mobile-menu a:hover {
+.mobile-menu a:hover,
+.mobile-submenu-toggle:hover,
+.mobile-back-btn:hover {
   color: #8a6f3d;
   padding-left: 4px;
+}
+
+.mobile-menu-main,
+.mobile-submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .hero {
@@ -909,6 +926,8 @@ img {
 .icon-btn:focus-visible,
 .btn:focus-visible,
 .mobile-menu a:focus-visible,
+.mobile-submenu-toggle:focus-visible,
+.mobile-back-btn:focus-visible,
 .search-bar input:focus-visible,
 .search-bar button:focus-visible,
 .form-card input:focus-visible,
