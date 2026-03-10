@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessoires | MODEL D'EXPO</title>
+  <link rel="stylesheet" href="./style.css?v=12" />
+  <script src="./script.js?v=12" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <div class="topbar">
+      Bienvenue chez MODEL D'EXPO | Livraison offerte dans toute la France
+    </div>
+
+    <header class="header">
+      <div class="header-left">
+        <button
+          class="icon-btn"
+          id="menuToggle"
+          aria-label="Ouvrir le menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+          type="button"
+        >
+          ☰
+        </button>
+
+        <button
+          class="icon-btn"
+          id="searchToggle"
+          aria-label="Ouvrir la recherche"
+          aria-controls="searchBar"
+          aria-expanded="false"
+          type="button"
+        >
+          ⌕
+        </button>
+      </div>
+
+      <div class="logo-wrap">
+        <a href="index.html" class="logo-link" aria-label="Retour à l'accueil MODEL D'EXPO">
+          <div class="logo">MODEL D'EXPO</div>
+          <div class="logo-sub">depuis 1897</div>
+        </a>
+      </div>
+
+      <div class="header-right">
+        <a href="compte.html" class="icon-btn icon-link" aria-label="Compte">👤</a>
+        <a href="panier.html" class="icon-btn cart-btn icon-link" aria-label="Panier">
+          🛍
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="search-bar" id="searchBar">
+      <input type="text" placeholder="Rechercher un accessoire..." aria-label="Rechercher un accessoire" />
+      <button type="button">Rechercher</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
+      <div class="mobile-menu-main" id="mobileMenuMain">
+        <a href="index.html">Accueil</a>
+
+        <button
+          class="mobile-submenu-toggle"
+          id="pretaporterToggle"
+          type="button"
+          aria-controls="pretaporterSubmenu"
+          aria-expanded="false"
+        >
+          Prêt à porter
+        </button>
+
+        <a href="chaussure.html">Chaussures</a>
+        <a href="accessoire.html">Accessoires</a>
+        <a href="compte.html">Créer un compte</a>
+        <a href="panier.html">Voir le panier</a>
+      </div>
+
+      <div class="mobile-submenu is-hidden" id="pretaporterSubmenu">
+        <button class="mobile-back-btn" id="backToMainMenu" type="button">
+          ← Retour
+        </button>
+
+        <a href="tshirts.html">T-shirts</a>
+        <a href="jeans.html">Jean</a>
+        <a href="shorts.html">Short</a>
+        <a href="pulls.html">Pull</a>
+      </div>
+    </nav>
+
+    <section class="page-section">
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a>
+        <span>/</span>
+        <span>Accessoires</span>
+      </div>
+
+      <h1 class="page-title">Collection accessoires</h1>
+
+      <div class="page-card" style="text-align: center; margin-bottom: 28px;">
+        <h2>Les accessoires de marque</h2>
+        <p>
+          Découvrez notre sélection premium d’accessoires homme :
+          casquettes, sacs, ceintures, lunettes et montres.
+        </p>
+      </div>
+
+      <section class="products" style="padding: 0;">
+        <div class="product-grid">
+          <article class="card shoe-card">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=80"
+              alt="Casquette New Era"
+            />
+            <span class="card-tag">New Era</span>
+            <h3>Casquette New Era</h3>
+            <p class="price">39,99 €</p>
+            <p class="card-text">
+              Une casquette iconique au style urbain, parfaite pour compléter une tenue casual.
+            </p>
+            <button
+              class="btn small-btn add-to-cart-btn"
+              data-name="Casquette New Era"
+              data-price="39.99"
+              data-category="Accessoires"
+              data-image="Casquette New Era"
+              type="button"
+            >
+              Ajouter au panier
+            </button>
+          </article>
+
+          <article class="card shoe-card">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80"
+              alt="Sac Tommy Hilfiger"
+            />
+            <span class="card-tag">Tommy Hilfiger</span>
+            <h3>Sac Tommy Hilfiger</h3>
+            <p class="price">89,99 €</p>
+            <p class="card-text">
+              Un sac élégant et pratique pour transporter vos essentiels avec style.
+            </p>
+            <button
+              class="btn small-btn add-to-cart-btn"
+              data-name="Sac Tommy Hilfiger"
+              data-price="89.99"
+              data-category="Accessoires"
+              data-image="Sac Tommy Hilfiger"
+              type="button"
+            >
+              Ajouter au panier
+            </button>
+          </article>
+
+          <article class="card shoe-card">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=900&q=80"
+              alt="Ceinture Calvin Klein"
+            />
+            <span class="card-tag">Calvin Klein</span>
+            <h3>Ceinture Calvin Klein</h3>
+            <p class="price">59,99 €</p>
+            <p class="card-text">
+              Une ceinture sobre et premium, idéale pour une tenue habillée ou chic décontractée.
+            </p>
+            <button
+              class="btn small-btn add-to-cart-btn"
+              data-name="Ceinture Calvin Klein"
+              data-price="59.99"
+              data-category="Accessoires"
+              data-image="Ceinture Calvin Klein"
+              type="button"
+            >
+              Ajouter au panier
+            </button>
+          </article>
+
+          <article class="card shoe-card">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80"
+              alt="Lunettes Ray-Ban"
+            />
+            <span class="card-tag">Ray-Ban</span>
+            <h3>Lunettes Ray-Ban</h3>
+            <p class="price">129,99 €</p>
+            <p class="card-text">
+              Un modèle intemporel qui apporte tout de suite une touche élégante et tendance.
+            </p>
+            <button
+              class="btn small-btn add-to-cart-btn"
+              data-name="Lunettes Ray-Ban"
+              data-price="129.99"
+              data-category="Accessoires"
+              data-image="Lunettes Ray-Ban"
+              type="button"
+            >
+              Ajouter au panier
+            </button>
+          </article>
+
+          <article class="card shoe-card">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=900&q=80"
+              alt="Montre Hugo Boss"
+            />
+            <span class="card-tag">Hugo Boss</span>
+            <h3>Montre Hugo Boss</h3>
+            <p class="price">199,99 €</p>
+            <p class="card-text">
+              Une montre raffinée pour apporter une finition premium à votre silhouette.
+            </p>
+            <button
+              class="btn small-btn add-to-cart-btn"
+              data-name="Montre Hugo Boss"
+              data-price="199.99"
+              data-category="Accessoires"
+              data-image="Montre Hugo Boss"
+              type="button"
+            >
+              Ajouter au panier
+            </button>
+          </article>
+
+          <article class="card shoe-card">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1548883354-94bcfe321cbb?auto=format&fit=crop&w=900&q=80"
+              alt="Portefeuille Lacoste"
+            />
+            <span class="card-tag">Lacoste</span>
+            <h3>Portefeuille Lacoste</h3>
+            <p class="price">69,99 €</p>
+            <p class="card-text">
+              Compact, élégant et pratique, parfait pour un usage quotidien avec une touche chic.
+            </p>
+            <button
+              class="btn small-btn add-to-cart-btn"
+              data-name="Portefeuille Lacoste"
+              data-price="69.99"
+              data-category="Accessoires"
+              data-image="Portefeuille Lacoste"
+              type="button"
+            >
+              Ajouter au panier
+            </button>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="trust-strip trust-strip-bottom">
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <h3>Paiement sécurisé</h3>
+        <p>Transactions protégées et parcours d’achat fiable.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">🚚</div>
+        <h3>Livraison express</h3>
+        <p>Expédition rapide partout en France.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">↩</div>
+        <h3>Retours gratuits</h3>
+        <p>Retour possible sous 14 jours après réception.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">☎</div>
+        <h3>Service client</h3>
+        <p>Une équipe disponible pour vous accompagner.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 MODEL D'EXPO - Tous droits réservés</p>
+    </footer>
+  </div>
+</body>
+</html>
