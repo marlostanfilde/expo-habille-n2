@@ -168,7 +168,7 @@ function clearPromo() {
 }
 
 function formatPrice(value) {
-  return `${value.toFixed(2).replace(".", ",")} €`;
+  return `${Number(value).toFixed(2).replace(".", ",")} €`;
 }
 
 function slugify(text) {
@@ -516,10 +516,14 @@ function renderCartPage() {
     cart
       .map((item, index) => {
         const itemTotal = item.price * item.quantity;
+        const itemImageHtml =
+          item.image && String(item.image).startsWith("http")
+            ? `<img src="${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" />`
+            : `${item.image || item.name}`;
 
         return `
           <div class="cart-item" data-id="${item.id}">
-            <div class="cart-item-image">${item.image || item.name}</div>
+            <div class="cart-item-image">${itemImageHtml}</div>
 
             <div class="cart-item-info">
               <h2>${item.name}</h2>
@@ -646,6 +650,63 @@ function showToast(message) {
   }, 2200);
 }
 
+function initDynamicProductPage() {
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+  const price = params.get("price");
+  const image = params.get("image");
+  const brand = params.get("brand");
+  const ref = params.get("ref");
+  const color = params.get("color");
+  const material = params.get("material");
+  const description = params.get("description");
+
+  if (!name || !price || !image) return;
+
+  const mainImage = document.getElementById("productMainImage");
+  const title = document.getElementById("productTitle");
+  const priceNode = document.getElementById("productPrice");
+  const breadcrumb = document.getElementById("breadcrumbProduct");
+  const refNode = document.getElementById("productRef");
+  const colorNode = document.getElementById("productColor");
+  const materialNode = document.getElementById("productMaterial");
+  const descriptionNode = document.getElementById("productDescription");
+  const extraDescriptionNode = document.getElementById("productExtraDescription");
+  const addBtn = document.getElementById("productAddBtn");
+  const thumb1 = document.getElementById("thumb1");
+
+  if (mainImage) {
+    mainImage.src = image;
+    mainImage.alt = name;
+  }
+
+  if (thumb1) {
+    thumb1.dataset.image = image;
+  }
+
+  if (title) title.textContent = name;
+  if (breadcrumb) breadcrumb.textContent = name;
+  if (priceNode) priceNode.textContent = formatPrice(price);
+  if (refNode) refNode.textContent = ref || "-";
+  if (colorNode) colorNode.textContent = color || "-";
+  if (materialNode) materialNode.textContent = material || "-";
+
+  const finalDescription =
+    description || `Une pièce premium ${brand ? brand : ""} sélectionnée par MODEL D'EXPO.`;
+
+  if (descriptionNode) descriptionNode.textContent = finalDescription;
+  if (extraDescriptionNode) extraDescriptionNode.textContent = finalDescription;
+
+  if (addBtn) {
+    addBtn.dataset.name = name;
+    addBtn.dataset.price = price;
+    addBtn.dataset.image = image;
+    addBtn.dataset.category = brand ? `Chaussures · ${brand}` : "Chaussures";
+  }
+
+  document.title = `${name} | MODEL D'EXPO`;
+}
+
 function initProductPage() {
   const mainImage = document.getElementById("productMainImage");
   const thumbs = document.querySelectorAll(".product-thumb");
@@ -658,7 +719,10 @@ function initProductPage() {
       thumb.addEventListener("click", () => {
         thumbs.forEach((item) => item.classList.remove("active"));
         thumb.classList.add("active");
-        mainImage.src = thumb.dataset.image || "";
+
+        if (thumb.dataset.image) {
+          mainImage.src = thumb.dataset.image;
+        }
       });
     });
   }
@@ -671,6 +735,8 @@ function initProductPage() {
       const image = addButton.dataset.image || "";
       const size = sizeSelect ? sizeSelect.value : "";
       const quantity = qtySelect ? Number(qtySelect.value) : 1;
+
+      if (!name || !price) return;
 
       if (!size) {
         showToast("Merci de choisir une pointure.");
@@ -769,6 +835,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initAccountPage();
   initCartPage();
   initSearch();
+  initDynamicProductPage();
   initProductPage();
   initFeaturedSlider();
 });
