@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Passer la commande | MODEL D'EXPO</title>
+  <link rel="stylesheet" href="./style.css?v=12" />
+  <script src="./script.js?v=12" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <div class="topbar">
+      Bienvenue chez MODEL D'EXPO | Livraison offerte dans toute la France
+    </div>
+
+    <header class="header">
+      <div class="header-left">
+        <button class="icon-btn" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="mobileMenu" aria-expanded="false" type="button">☰</button>
+        <button class="icon-btn" id="searchToggle" aria-label="Ouvrir la recherche" aria-controls="searchBar" aria-expanded="false" type="button">⌕</button>
+      </div>
+
+      <div class="logo-wrap">
+        <a href="index.html" class="logo-link" aria-label="Retour à l'accueil MODEL D'EXPO">
+          <div class="logo">MODEL D'EXPO</div>
+          <div class="logo-sub">depuis 1897</div>
+        </a>
+      </div>
+
+      <div class="header-right">
+        <a href="compte.html" class="icon-btn icon-link" aria-label="Compte">👤</a>
+        <a href="panier.html" class="icon-btn cart-btn icon-link" aria-label="Panier">
+          🛍
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="search-bar" id="searchBar">
+      <input type="text" placeholder="Rechercher un produit..." aria-label="Rechercher un produit" />
+      <button type="button">Rechercher</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
+      <div class="mobile-menu-main" id="mobileMenuMain">
+        <a href="index.html">Accueil</a>
+        <button class="mobile-submenu-toggle" id="pretaporterToggle" type="button" aria-controls="pretaporterSubmenu" aria-expanded="false">
+          Prêt à porter
+        </button>
+        <a href="chaussure.html">Chaussures</a>
+        <a href="accessoire.html">Accessoires</a>
+        <a href="compte.html">Créer un compte</a>
+        <a href="panier.html">Voir le panier</a>
+      </div>
+
+      <div class="mobile-submenu is-hidden" id="pretaporterSubmenu">
+        <button class="mobile-back-btn" id="backToMainMenu" type="button">← Retour</button>
+        <a href="tshirts.html">T-shirts</a>
+        <a href="jeans.html">Jean</a>
+        <a href="shorts.html">Short</a>
+        <a href="pulls.html">Pull</a>
+      </div>
+    </nav>
+
+    <section class="page-section">
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a>
+        <span>/</span>
+        <a href="panier.html">Panier</a>
+        <span>/</span>
+        <span>Commande</span>
+      </div>
+
+      <h1 class="page-title">Finaliser ma commande</h1>
+
+      <div class="cart-layout">
+        <div class="page-card">
+          <h2 style="margin-bottom: 18px;">Informations de livraison</h2>
+
+          <div class="form-card" style="max-width: 100%; padding: 0; border: none; background: transparent;">
+            <label for="checkout-firstname">Prénom</label>
+            <input type="text" id="checkout-firstname" placeholder="Votre prénom" />
+
+            <label for="checkout-lastname">Nom</label>
+            <input type="text" id="checkout-lastname" placeholder="Votre nom" />
+
+            <label for="checkout-email">Adresse e-mail</label>
+            <input type="email" id="checkout-email" placeholder="Votre e-mail" />
+
+            <label for="checkout-address">Adresse</label>
+            <input type="text" id="checkout-address" placeholder="Votre adresse" />
+
+            <label for="checkout-city">Ville</label>
+            <input type="text" id="checkout-city" placeholder="Votre ville" />
+
+            <label for="checkout-postcode">Code postal</label>
+            <input type="text" id="checkout-postcode" placeholder="Votre code postal" />
+
+            <label for="checkout-country">Pays</label>
+            <input type="text" id="checkout-country" placeholder="France" />
+
+            <label for="checkout-payment">Mode de paiement</label>
+            <select id="checkout-payment">
+              <option value="">Choisir un mode de paiement</option>
+              <option>Carte bancaire</option>
+              <option>PayPal</option>
+              <option>Apple Pay</option>
+            </select>
+
+            <button type="button" class="btn dark full-btn" id="confirmOrderBtn">
+              Confirmer la commande
+            </button>
+
+            <div id="checkoutMessage"></div>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <h2>Récapitulatif</h2>
+
+          <div class="summary-row">
+            <span>Sous-total</span>
+            <strong data-checkout="subtotal">0,00 €</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>Livraison</span>
+            <strong>Offerte</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>Remise</span>
+            <strong data-checkout="discount">0,00 €</strong>
+          </div>
+
+          <div class="summary-total">
+            <span>Total</span>
+            <strong data-checkout="total">0,00 €</strong>
+          </div>
+
+          <div class="continue-btn">
+            <a href="panier.html" class="btn">Retour au panier</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 MODEL D'EXPO - Tous droits réservés</p>
+    </footer>
+  </div>
+</body>
+</html>
