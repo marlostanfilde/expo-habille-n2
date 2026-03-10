@@ -11,7 +11,7 @@
   --dark: #151515;
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.1);
   --radius: 14px;
-  --container: 1100px;
+  --container: 1500px;
 }
 
 * {
@@ -50,7 +50,7 @@ img {
 }
 
 .site-wrap {
-  width: min(100%, var(--container));
+  width: min(96%, var(--container));
   margin: 20px auto;
   background: var(--surface);
   min-height: 100vh;
@@ -279,9 +279,9 @@ img {
 
 .featured-look {
   display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
-  gap: 24px;
-  padding: 56px 24px;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  padding: 70px 40px;
   align-items: center;
   background: #f8f6f2;
 }
@@ -450,10 +450,14 @@ img {
   border: none;
   cursor: pointer;
   margin-top: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .products {
-  padding: 56px 24px;
+  padding: 70px 40px;
   text-align: center;
 }
 
@@ -531,6 +535,12 @@ img {
   background: #f3efe8;
 }
 
+.card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .appointment {
   padding: 56px 24px;
   text-align: center;
@@ -553,7 +563,7 @@ img {
 }
 
 .page-section {
-  padding: 40px 24px 60px;
+  padding: 50px 40px 70px;
 }
 
 .page-title {
@@ -1011,7 +1021,7 @@ img {
 }
 
 .product-extra {
-  padding: 0 24px 56px;
+  padding: 0 40px 70px;
 }
 
 .product-extra-grid {
@@ -1295,14 +1305,4 @@ select:focus-visible,
   .trust-strip {
     padding: 20px 18px 30px;
   }
-}
-.full-btn {
-  width: 100%;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
