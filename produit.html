@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sneaker premium - Soulery</title>
-  <link rel="stylesheet" href="./style.css?v=10" />
-  <script src="./script.js?v=10" defer></script>
+  <title>On Cloud 5 | MODEL D'EXPO</title>
+  <link rel="stylesheet" href="./style.css?v=12" />
+  <script src="./script.js?v=12" defer></script>
 </head>
 <body>
   <div class="site-wrap">
@@ -20,7 +20,7 @@
       </div>
 
       <div class="logo-wrap">
-        <a href="index.html" class="logo-link" aria-label="Retour à l'accueil Soulery">
+        <a href="index.html" class="logo-link" aria-label="Retour à l'accueil MODEL D'EXPO">
           <div class="logo">MODEL D'EXPO</div>
           <div class="logo-sub">depuis 1897</div>
         </a>
@@ -41,62 +41,85 @@
     </div>
 
     <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
-      <a href="index.html">Accueil</a>
-      <a href="index.html#produits">Collection</a>
-      <a href="index.html#ceremonie">Cérémonie</a>
-      <a href="index.html#pretaporter">Prêt à porter</a>
-      <a href="index.html#chaussures">Chaussures</a>
-      <a href="index.html#accessoires">Accessoires</a>
-      <a href="compte.html">Créer un compte</a>
-      <a href="panier.html">Voir le panier</a>
+      <div class="mobile-menu-main" id="mobileMenuMain">
+        <a href="index.html">Accueil</a>
+        <a href="chaussure.html">Chaussures</a>
+        <a href="accessoire.html">Accessoires</a>
+        <a href="compte.html">Créer un compte</a>
+        <a href="panier.html">Voir le panier</a>
+      </div>
     </nav>
 
     <section class="page-section">
       <div class="breadcrumb">
         <a href="index.html">Accueil</a>
         <span>/</span>
-        <a href="index.html#produits">Collection</a>
+        <a href="chaussure.html">Chaussures</a>
         <span>/</span>
-        <span>Sneaker premium</span>
+        <span>On Cloud 5</span>
       </div>
 
       <div class="product-page">
         <div class="product-gallery">
-          <div class="product-main-image" id="productMainImage">Sneaker</div>
+          <div class="product-main-image">
+            <img
+              id="productMainImage"
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
+              alt="On Cloud 5"
+              class="product-real-image"
+            />
+          </div>
 
           <div class="product-thumbs">
-            <button class="product-thumb active" type="button" data-image="Sneaker">Sneaker</button>
-            <button class="product-thumb" type="button" data-image="Profil">Profil</button>
-            <button class="product-thumb" type="button" data-image="Détail">Détail</button>
+            <button
+              class="product-thumb active"
+              type="button"
+              data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
+            >
+              Vue 1
+            </button>
+            <button
+              class="product-thumb"
+              type="button"
+              data-image="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=80"
+            >
+              Vue 2
+            </button>
+            <button
+              class="product-thumb"
+              type="button"
+              data-image="https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format&fit=crop&w=900&q=80"
+            >
+              Vue 3
+            </button>
           </div>
         </div>
 
         <div class="product-details">
           <span class="product-badge">Nouvelle collection</span>
-          <h1 class="product-title">Sneaker premium</h1>
+          <h1 class="product-title">On Cloud 5</h1>
 
           <div class="product-price-line">
-            <span class="product-price">150,00 €</span>
+            <span class="product-price">159,99 €</span>
             <span class="product-tax">TTC</span>
           </div>
 
           <p class="product-description">
-            La Sneaker premium Soulery associe lignes épurées, confort quotidien et finitions soignées.
-            Pensée pour accompagner un vestiaire habillé comme des silhouettes plus décontractées.
+            Une sneaker légère, moderne et confortable, parfaite pour un usage quotidien avec une silhouette urbaine premium.
           </p>
 
           <div class="product-meta">
             <div class="product-meta-row">
               <span>Référence</span>
-              <strong>SLR-SNK-001</strong>
+              <strong>ON-CLOUD-5</strong>
             </div>
             <div class="product-meta-row">
               <span>Couleur</span>
-              <strong>Blanc cassé</strong>
+              <strong>Blanc / Gris</strong>
             </div>
             <div class="product-meta-row">
               <span>Matière</span>
-              <strong>Cuir premium</strong>
+              <strong>Mesh technique</strong>
             </div>
           </div>
 
@@ -125,10 +148,10 @@
             <button
               type="button"
               class="btn dark product-add-btn"
-              data-name="Sneaker premium"
-              data-price="150"
+              data-name="On Cloud 5"
+              data-price="159.99"
               data-category="Chaussures"
-              data-image="Sneaker"
+              data-image="On Cloud 5"
             >
               Ajouter au panier
             </button>
@@ -150,83 +173,23 @@
         <div class="product-extra-card">
           <h2>Description</h2>
           <p>
-            Une sneaker élégante pensée pour un usage polyvalent. Sa ligne minimaliste permet
-            de l’associer à un pantalon tailleur, un jean brut ou un costume décontracté.
+            Une sneaker confortable et polyvalente, pensée pour accompagner une tenue casual ou plus habillée.
           </p>
         </div>
 
         <div class="product-extra-card">
           <h2>Livraison & retours</h2>
           <p>
-            Livraison offerte dans toute la France. Retour possible sous 14 jours à compter
-            de la réception de votre commande.
+            Livraison offerte dans toute la France. Retour possible sous 14 jours à compter de la réception de votre commande.
           </p>
         </div>
 
         <div class="product-extra-card">
           <h2>Conseil taille</h2>
           <p>
-            Nous recommandons votre pointure habituelle. Entre deux tailles, choisissez la plus grande
-            pour un confort optimal.
+            Nous recommandons votre pointure habituelle. Entre deux tailles, choisissez la plus grande pour plus de confort.
           </p>
         </div>
-      </div>
-    </section>
-
-    <section class="products related-products">
-      <h2>Vous aimerez aussi</h2>
-
-      <div class="product-grid">
-        <article class="card">
-          <span class="card-tag">Cérémonie</span>
-          <h3>Costume slim</h3>
-          <p class="price">499,00 €</p>
-          <p class="card-text">Une coupe moderne et structurée pour les grandes occasions.</p>
-          <a
-            href="panier.html"
-            class="btn small-btn add-to-cart-btn"
-            data-name="Costume slim"
-            data-price="499"
-            data-category="Cérémonie"
-            data-image="Costume"
-          >
-            Ajouter au panier
-          </a>
-        </article>
-
-        <article class="card">
-          <span class="card-tag">Cuir & style</span>
-          <h3>Mocassin daim</h3>
-          <p class="price">690,00 €</p>
-          <p class="card-text">Une pièce raffinée, pensée pour un vestiaire exigeant.</p>
-          <a
-            href="panier.html"
-            class="btn small-btn add-to-cart-btn"
-            data-name="Mocassin daim"
-            data-price="690"
-            data-category="Cuir & style"
-            data-image="Mocassin"
-          >
-            Ajouter au panier
-          </a>
-        </article>
-
-        <article class="card">
-          <span class="card-tag">Accessoires</span>
-          <h3>Ceinture signature</h3>
-          <p class="price">120,00 €</p>
-          <p class="card-text">Un essentiel élégant pour structurer la silhouette.</p>
-          <a
-            href="panier.html"
-            class="btn small-btn add-to-cart-btn"
-            data-name="Ceinture signature"
-            data-price="120"
-            data-category="Accessoires"
-            data-image="Ceinture"
-          >
-            Ajouter au panier
-          </a>
-        </article>
       </div>
     </section>
 
