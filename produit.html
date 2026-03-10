@@ -15,27 +15,8 @@
 
     <header class="header">
       <div class="header-left">
-        <button
-          class="icon-btn"
-          id="menuToggle"
-          aria-label="Ouvrir le menu"
-          aria-controls="mobileMenu"
-          aria-expanded="false"
-          type="button"
-        >
-          ☰
-        </button>
-
-        <button
-          class="icon-btn"
-          id="searchToggle"
-          aria-label="Ouvrir la recherche"
-          aria-controls="searchBar"
-          aria-expanded="false"
-          type="button"
-        >
-          ⌕
-        </button>
+        <button class="icon-btn" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="mobileMenu" aria-expanded="false" type="button">☰</button>
+        <button class="icon-btn" id="searchToggle" aria-label="Ouvrir la recherche" aria-controls="searchBar" aria-expanded="false" type="button">⌕</button>
       </div>
 
       <div class="logo-wrap">
@@ -62,32 +43,10 @@
     <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
       <div class="mobile-menu-main" id="mobileMenuMain">
         <a href="index.html">Accueil</a>
-
-        <button
-          class="mobile-submenu-toggle"
-          id="pretaporterToggle"
-          type="button"
-          aria-controls="pretaporterSubmenu"
-          aria-expanded="false"
-        >
-          Prêt à porter
-        </button>
-
         <a href="chaussure.html">Chaussures</a>
         <a href="accessoire.html">Accessoires</a>
         <a href="compte.html">Créer un compte</a>
         <a href="panier.html">Voir le panier</a>
-      </div>
-
-      <div class="mobile-submenu is-hidden" id="pretaporterSubmenu">
-        <button class="mobile-back-btn" id="backToMainMenu" type="button">
-          ← Retour
-        </button>
-
-        <a href="tshirts.html">T-shirts</a>
-        <a href="jeans.html">Jean</a>
-        <a href="shorts.html">Short</a>
-        <a href="pulls.html">Pull</a>
       </div>
     </nav>
 
@@ -95,7 +54,7 @@
       <div class="breadcrumb">
         <a href="index.html">Accueil</a>
         <span>/</span>
-        <a href="chaussure.html">Chaussures</a>
+        <a href="index.html">Collection</a>
         <span>/</span>
         <span id="breadcrumbProduct">Produit</span>
       </div>
@@ -103,22 +62,11 @@
       <div class="product-page">
         <div class="product-gallery">
           <div class="product-main-image">
-            <img
-              id="productMainImage"
-              src=""
-              alt=""
-              class="product-real-image"
-            />
+            <img id="productMainImage" src="" alt="" class="product-real-image" />
           </div>
 
           <div class="product-thumbs">
-            <button
-              class="product-thumb active"
-              type="button"
-              id="thumb1"
-            >
-              Vue 1
-            </button>
+            <button class="product-thumb active" type="button" id="thumb1">Vue 1</button>
           </div>
         </div>
 
@@ -151,9 +99,13 @@
           </div>
 
           <div class="product-option">
-            <label for="product-size">Pointure</label>
+            <label for="product-size">Taille</label>
             <select id="product-size">
-              <option value="">Choisir une pointure</option>
+              <option value="">Choisir une taille</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
               <option>40</option>
               <option>41</option>
               <option>42</option>
@@ -178,7 +130,7 @@
               id="productAddBtn"
               data-name=""
               data-price=""
-              data-category="Chaussures"
+              data-category=""
               data-image=""
             >
               Ajouter au panier
@@ -216,7 +168,7 @@
         <div class="product-extra-card">
           <h2>Conseil taille</h2>
           <p>
-            Nous recommandons votre pointure habituelle. Entre deux tailles, choisissez la plus grande
+            Nous recommandons votre taille habituelle. Entre deux tailles, choisissez la plus grande
             pour un confort optimal.
           </p>
         </div>
