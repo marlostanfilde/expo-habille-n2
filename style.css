@@ -1296,3 +1296,10 @@ select:focus-visible,
     padding: 20px 18px 30px;
   }
 }
+.full-btn {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  text-align: center;
+}
