@@ -658,7 +658,7 @@ function initProductPage() {
       thumb.addEventListener("click", () => {
         thumbs.forEach((item) => item.classList.remove("active"));
         thumb.classList.add("active");
-        mainImage.textContent = thumb.dataset.image || "Produit";
+        mainImage.src = thumb.dataset.image || "";
       });
     });
   }
@@ -668,7 +668,7 @@ function initProductPage() {
       const name = addButton.dataset.name;
       const price = Number(addButton.dataset.price);
       const category = addButton.dataset.category || "";
-      const image = addButton.dataset.image || name;
+      const image = addButton.dataset.image || "";
       const size = sizeSelect ? sizeSelect.value : "";
       const quantity = qtySelect ? Number(qtySelect.value) : 1;
 
