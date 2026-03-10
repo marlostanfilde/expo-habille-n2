@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>On Cloud 5 | MODEL D'EXPO</title>
+  <title>Produit | MODEL D'EXPO</title>
   <link rel="stylesheet" href="./style.css?v=12" />
   <script src="./script.js?v=12" defer></script>
 </head>
@@ -56,70 +56,45 @@
         <span>/</span>
         <a href="chaussure.html">Chaussures</a>
         <span>/</span>
-        <span>On Cloud 5</span>
+        <span id="breadcrumbProduct">Produit</span>
       </div>
 
       <div class="product-page">
         <div class="product-gallery">
           <div class="product-main-image">
-            <img
-              id="productMainImage"
-              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
-              alt="On Cloud 5"
-              class="product-real-image"
-            />
+            <img id="productMainImage" src="" alt="" class="product-real-image" />
           </div>
 
           <div class="product-thumbs">
-            <button
-              class="product-thumb active"
-              type="button"
-              data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
-            >
-              Vue 1
-            </button>
-            <button
-              class="product-thumb"
-              type="button"
-              data-image="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=80"
-            >
-              Vue 2
-            </button>
-            <button
-              class="product-thumb"
-              type="button"
-              data-image="https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format&fit=crop&w=900&q=80"
-            >
-              Vue 3
-            </button>
+            <button class="product-thumb active" type="button" id="thumb1">Vue 1</button>
           </div>
         </div>
 
         <div class="product-details">
           <span class="product-badge">Nouvelle collection</span>
-          <h1 class="product-title">On Cloud 5</h1>
+          <h1 class="product-title" id="productTitle">Produit</h1>
 
           <div class="product-price-line">
-            <span class="product-price">159,99 €</span>
+            <span class="product-price" id="productPrice">0,00 €</span>
             <span class="product-tax">TTC</span>
           </div>
 
-          <p class="product-description">
-            Une sneaker légère, moderne et confortable, parfaite pour un usage quotidien avec une silhouette urbaine premium.
+          <p class="product-description" id="productDescription">
+            Une pièce premium sélectionnée par MODEL D'EXPO.
           </p>
 
           <div class="product-meta">
             <div class="product-meta-row">
               <span>Référence</span>
-              <strong>ON-CLOUD-5</strong>
+              <strong id="productRef">-</strong>
             </div>
             <div class="product-meta-row">
               <span>Couleur</span>
-              <strong>Blanc / Gris</strong>
+              <strong id="productColor">-</strong>
             </div>
             <div class="product-meta-row">
               <span>Matière</span>
-              <strong>Mesh technique</strong>
+              <strong id="productMaterial">-</strong>
             </div>
           </div>
 
@@ -148,10 +123,11 @@
             <button
               type="button"
               class="btn dark product-add-btn"
-              data-name="On Cloud 5"
-              data-price="159.99"
+              id="productAddBtn"
+              data-name=""
+              data-price=""
               data-category="Chaussures"
-              data-image="On Cloud 5"
+              data-image=""
             >
               Ajouter au panier
             </button>
@@ -164,31 +140,6 @@
             <div class="product-benefit">Retours sous 14 jours</div>
             <div class="product-benefit">Conseil personnalisé en boutique</div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="product-extra">
-      <div class="product-extra-grid">
-        <div class="product-extra-card">
-          <h2>Description</h2>
-          <p>
-            Une sneaker confortable et polyvalente, pensée pour accompagner une tenue casual ou plus habillée.
-          </p>
-        </div>
-
-        <div class="product-extra-card">
-          <h2>Livraison & retours</h2>
-          <p>
-            Livraison offerte dans toute la France. Retour possible sous 14 jours à compter de la réception de votre commande.
-          </p>
-        </div>
-
-        <div class="product-extra-card">
-          <h2>Conseil taille</h2>
-          <p>
-            Nous recommandons votre pointure habituelle. Entre deux tailles, choisissez la plus grande pour plus de confort.
-          </p>
         </div>
       </div>
     </section>
