@@ -701,6 +701,66 @@ function initProductPage() {
   }
 }
 
+function initFeaturedSlider() {
+  const slider = document.getElementById("featuredSlider");
+  const prevBtn = document.getElementById("featuredPrev");
+  const nextBtn = document.getElementById("featuredNext");
+
+  if (!slider) return;
+
+  const slides = Array.from(slider.querySelectorAll(".featured-slide"));
+  if (slides.length < 2) return;
+
+  let currentIndex = 0;
+  let autoSlide;
+
+  function showSlide(index) {
+    slides.forEach((slide) => {
+      slide.classList.remove("active", "previous");
+    });
+
+    const previousIndex = currentIndex;
+    currentIndex = (index + slides.length) % slides.length;
+
+    slides[previousIndex].classList.add("previous");
+    slides[currentIndex].classList.add("active");
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentIndex - 1);
+  }
+
+  function startAutoSlide() {
+    autoSlide = setInterval(nextSlide, 3500);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlide);
+    startAutoSlide();
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+  }
+
+  slides[0].classList.add("active");
+  startAutoSlide();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   resetMobileSubmenu();
   updateCartCount();
@@ -710,4 +770,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initCartPage();
   initSearch();
   initProductPage();
+  initFeaturedSlider();
 });
