@@ -9,22 +9,13 @@ const mobileMenuMain = document.getElementById("mobileMenuMain");
 const backToMainMenu = document.getElementById("backToMainMenu");
 
 function resetMobileSubmenu() {
-  if (mobileMenuMain) {
-    mobileMenuMain.classList.remove("is-hidden");
-  }
-
-  if (pretaporterSubmenu) {
-    pretaporterSubmenu.classList.add("is-hidden");
-  }
-
-  if (pretaporterToggle) {
-    pretaporterToggle.setAttribute("aria-expanded", "false");
-  }
+  if (mobileMenuMain) mobileMenuMain.classList.remove("is-hidden");
+  if (pretaporterSubmenu) pretaporterSubmenu.classList.add("is-hidden");
+  if (pretaporterToggle) pretaporterToggle.setAttribute("aria-expanded", "false");
 }
 
 function openPretaporterSubmenu() {
   if (!mobileMenuMain || !pretaporterSubmenu || !pretaporterToggle) return;
-
   mobileMenuMain.classList.add("is-hidden");
   pretaporterSubmenu.classList.remove("is-hidden");
   pretaporterToggle.setAttribute("aria-expanded", "true");
@@ -47,7 +38,6 @@ function closeSearch() {
 
 function toggleMenu() {
   if (!mobileMenu || !menuToggle) return;
-
   const isOpen = mobileMenu.classList.toggle("active");
   menuToggle.setAttribute("aria-expanded", String(isOpen));
 
@@ -61,49 +51,24 @@ function toggleMenu() {
 
 function toggleSearch() {
   if (!searchBar || !searchToggle) return;
-
   const isOpen = searchBar.classList.toggle("active");
   searchToggle.setAttribute("aria-expanded", String(isOpen));
-
-  if (isOpen) {
-    closeMenu();
-  }
+  if (isOpen) closeMenu();
 }
 
-if (menuToggle && mobileMenu) {
-  menuToggle.addEventListener("click", toggleMenu);
-}
-
-if (searchToggle && searchBar) {
-  searchToggle.addEventListener("click", toggleSearch);
-}
-
-if (pretaporterToggle) {
-  pretaporterToggle.addEventListener("click", openPretaporterSubmenu);
-}
-
-if (backToMainMenu) {
-  backToMainMenu.addEventListener("click", resetMobileSubmenu);
-}
+if (menuToggle && mobileMenu) menuToggle.addEventListener("click", toggleMenu);
+if (searchToggle && searchBar) searchToggle.addEventListener("click", toggleSearch);
+if (pretaporterToggle) pretaporterToggle.addEventListener("click", openPretaporterSubmenu);
+if (backToMainMenu) backToMainMenu.addEventListener("click", resetMobileSubmenu);
 
 document.addEventListener("click", (event) => {
   const target = event.target;
 
-  if (
-    mobileMenu &&
-    menuToggle &&
-    !mobileMenu.contains(target) &&
-    !menuToggle.contains(target)
-  ) {
+  if (mobileMenu && menuToggle && !mobileMenu.contains(target) && !menuToggle.contains(target)) {
     closeMenu();
   }
 
-  if (
-    searchBar &&
-    searchToggle &&
-    !searchBar.contains(target) &&
-    !searchToggle.contains(target)
-  ) {
+  if (searchBar && searchToggle && !searchBar.contains(target) && !searchToggle.contains(target)) {
     closeSearch();
   }
 });
@@ -206,7 +171,6 @@ function createMessageBox(form) {
   if (!form) return null;
 
   let box = form.querySelector(".form-message");
-
   if (!box) {
     box = document.createElement("div");
     box.className = "form-message";
@@ -443,7 +407,6 @@ function renderLoggedInView(root, user) {
   `;
 
   const logoutBtn = document.getElementById("logoutBtn");
-
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       logoutUser();
@@ -513,43 +476,41 @@ function renderCartPage() {
   }
 
   cartContainer.innerHTML =
-    cart
-      .map((item, index) => {
-        const itemTotal = item.price * item.quantity;
-        const itemImageHtml =
-          item.image && String(item.image).startsWith("http")
-            ? `<img src="${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" />`
-            : `${item.image || item.name}`;
+    cart.map((item, index) => {
+      const itemTotal = item.price * item.quantity;
+      const itemImageHtml =
+        item.image && String(item.image).startsWith("http")
+          ? `<img src="${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" />`
+          : `${item.image || item.name}`;
 
-        return `
-          <div class="cart-item" data-id="${item.id}">
-            <div class="cart-item-image">${itemImageHtml}</div>
+      return `
+        <div class="cart-item" data-id="${item.id}">
+          <div class="cart-item-image">${itemImageHtml}</div>
 
-            <div class="cart-item-info">
-              <h2>${item.name}</h2>
-              <p>${item.category || "Collection MODEL D'EXPO"}</p>
-              <button class="remove-btn" type="button" data-remove="${item.id}">
-                Supprimer
-              </button>
-            </div>
-
-            <div class="cart-item-qty">
-              <label for="qty-${index}">Quantité</label>
-              <select id="qty-${index}" data-qty="${item.id}">
-                ${[1, 2, 3, 4, 5]
-                  .map(
-                    (qty) =>
-                      `<option value="${qty}" ${qty === item.quantity ? "selected" : ""}>${qty}</option>`
-                  )
-                  .join("")}
-              </select>
-            </div>
-
-            <div class="cart-item-price">${formatPrice(itemTotal)}</div>
+          <div class="cart-item-info">
+            <h2>${item.name}</h2>
+            <p>${item.category || "Collection MODEL D'EXPO"}</p>
+            <button class="remove-btn" type="button" data-remove="${item.id}">
+              Supprimer
+            </button>
           </div>
-        `;
-      })
-      .join("") +
+
+          <div class="cart-item-qty">
+            <label for="qty-${index}">Quantité</label>
+            <select id="qty-${index}" data-qty="${item.id}">
+              ${[1, 2, 3, 4, 5]
+                .map(
+                  (qty) =>
+                    `<option value="${qty}" ${qty === item.quantity ? "selected" : ""}>${qty}</option>`
+                )
+                .join("")}
+            </select>
+          </div>
+
+          <div class="cart-item-price">${formatPrice(itemTotal)}</div>
+        </div>
+      `;
+    }).join("") +
     `
       <div class="cart-note">
         <p>Besoin d’aide ? Notre service client vous accompagne dans votre commande et vos choix.</p>
@@ -566,9 +527,7 @@ function renderCartPage() {
   if (summarySubtotal) summarySubtotal.textContent = formatPrice(subtotal);
   if (summaryDiscount) summaryDiscount.textContent = `- ${formatPrice(discount)}`;
   if (summaryTotal) summaryTotal.textContent = formatPrice(total);
-  if (cartCountLabel) {
-    cartCountLabel.textContent = `${itemCount} article${itemCount > 1 ? "s" : ""}`;
-  }
+  if (cartCountLabel) cartCountLabel.textContent = `${itemCount} article${itemCount > 1 ? "s" : ""}`;
 
   updateCartCount();
 }
@@ -627,18 +586,13 @@ function initSearch() {
       if (match) found = true;
     });
 
-    if (!found) {
-      showToast("Aucun produit trouvé pour cette recherche.");
-    }
+    if (!found) showToast("Aucun produit trouvé pour cette recherche.");
   });
 }
 
 function showToast(message) {
   const existingToast = document.querySelector(".toast");
-
-  if (existingToast) {
-    existingToast.remove();
-  }
+  if (existingToast) existingToast.remove();
 
   const toast = document.createElement("div");
   toast.className = "toast";
@@ -652,6 +606,7 @@ function showToast(message) {
 
 function initDynamicProductPage() {
   const params = new URLSearchParams(window.location.search);
+
   const name = params.get("name");
   const price = params.get("price");
   const image = params.get("image");
@@ -660,8 +615,7 @@ function initDynamicProductPage() {
   const color = params.get("color");
   const material = params.get("material");
   const description = params.get("description");
-
-  if (!name || !price || !image) return;
+  const category = params.get("category");
 
   const mainImage = document.getElementById("productMainImage");
   const title = document.getElementById("productTitle");
@@ -674,34 +628,41 @@ function initDynamicProductPage() {
   const extraDescriptionNode = document.getElementById("productExtraDescription");
   const addBtn = document.getElementById("productAddBtn");
   const thumb1 = document.getElementById("thumb1");
+  const sizeLabel = document.querySelector('label[for="product-size"]');
 
-  if (mainImage) {
-    mainImage.src = image;
-    mainImage.alt = name;
-  }
+  if (!mainImage || !title || !priceNode || !addBtn) return;
+  if (!name || !price || !image) return;
 
-  if (thumb1) {
-    thumb1.dataset.image = image;
-  }
+  mainImage.src = image;
+  mainImage.alt = name;
 
-  if (title) title.textContent = name;
+  if (thumb1) thumb1.dataset.image = image;
+
+  title.textContent = name;
+  priceNode.textContent = formatPrice(price);
+
   if (breadcrumb) breadcrumb.textContent = name;
-  if (priceNode) priceNode.textContent = formatPrice(price);
   if (refNode) refNode.textContent = ref || "-";
   if (colorNode) colorNode.textContent = color || "-";
   if (materialNode) materialNode.textContent = material || "-";
 
   const finalDescription =
-    description || `Une pièce premium ${brand ? brand : ""} sélectionnée par MODEL D'EXPO.`;
+    description || `Une pièce premium ${brand || ""} sélectionnée par MODEL D'EXPO.`;
 
   if (descriptionNode) descriptionNode.textContent = finalDescription;
   if (extraDescriptionNode) extraDescriptionNode.textContent = finalDescription;
 
-  if (addBtn) {
-    addBtn.dataset.name = name;
-    addBtn.dataset.price = price;
-    addBtn.dataset.image = image;
-    addBtn.dataset.category = brand ? `Chaussures · ${brand}` : "Chaussures";
+  const finalCategory = category || brand || "Collection";
+
+  addBtn.dataset.name = name;
+  addBtn.dataset.price = price;
+  addBtn.dataset.image = image;
+  addBtn.dataset.category = finalCategory;
+
+  if (finalCategory.toLowerCase().includes("chauss")) {
+    if (sizeLabel) sizeLabel.textContent = "Pointure";
+  } else {
+    if (sizeLabel) sizeLabel.textContent = "Taille";
   }
 
   document.title = `${name} | MODEL D'EXPO`;
@@ -739,7 +700,7 @@ function initProductPage() {
       if (!name || !price) return;
 
       if (!size) {
-        showToast("Merci de choisir une pointure.");
+        showToast("Merci de choisir une taille.");
         return;
       }
 
