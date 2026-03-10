@@ -788,6 +788,58 @@ function initFeaturedSlider() {
   startAutoSlide();
 }
 
+function initCheckoutPage() {
+  const confirmBtn = document.getElementById("confirmOrderBtn");
+  const messageBox = document.getElementById("checkoutMessage");
+  const subtotalNode = document.querySelector('[data-checkout="subtotal"]');
+  const discountNode = document.querySelector('[data-checkout="discount"]');
+  const totalNode = document.querySelector('[data-checkout="total"]');
+
+  if (!confirmBtn) return;
+
+  const cart = getCart();
+  const promo = getPromo();
+
+  const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  const discount = promo ? subtotal * (promo.percent / 100) : 0;
+  const total = subtotal - discount;
+
+  if (subtotalNode) subtotalNode.textContent = formatPrice(subtotal);
+  if (discountNode) discountNode.textContent = `- ${formatPrice(discount)}`;
+  if (totalNode) totalNode.textContent = formatPrice(total);
+
+  confirmBtn.addEventListener("click", () => {
+    const firstName = document.getElementById("checkout-firstname")?.value.trim();
+    const lastName = document.getElementById("checkout-lastname")?.value.trim();
+    const email = document.getElementById("checkout-email")?.value.trim();
+    const address = document.getElementById("checkout-address")?.value.trim();
+    const city = document.getElementById("checkout-city")?.value.trim();
+    const postcode = document.getElementById("checkout-postcode")?.value.trim();
+    const country = document.getElementById("checkout-country")?.value.trim();
+    const payment = document.getElementById("checkout-payment")?.value;
+
+    if (!firstName || !lastName || !email || !address || !city || !postcode || !country || !payment) {
+      showMessage(messageBox, "Merci de remplir tous les champs pour valider la commande.", "error");
+      return;
+    }
+
+    if (!cart.length) {
+      showMessage(messageBox, "Votre panier est vide.", "error");
+      return;
+    }
+
+    localStorage.removeItem(CART_KEY);
+    clearPromo();
+    updateCartCount();
+
+    showMessage(messageBox, "Commande confirmée avec succès. Merci pour votre achat.", "success");
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1800);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   resetMobileSubmenu();
   updateCartCount();
@@ -799,4 +851,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initDynamicProductPage();
   initProductPage();
   initFeaturedSlider();
+  initCheckoutPage();
 });
