@@ -484,6 +484,12 @@ img {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .card-tag {
   display: inline-block;
   font-size: 12px;
@@ -509,6 +515,20 @@ img {
 .card-text {
   color: var(--muted);
   font-size: 15px;
+}
+
+.shoe-card {
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #e7e1d7;
+  background: #f3efe8;
 }
 
 .appointment {
@@ -718,6 +738,7 @@ img {
   font-family: "Times New Roman", serif;
   font-size: 20px;
   color: #4d3f29;
+  overflow: hidden;
 }
 
 .cart-item-info h2 {
@@ -856,6 +877,15 @@ img {
   font-family: "Times New Roman", serif;
   font-size: 42px;
   color: #4d3f29;
+  overflow: hidden;
+}
+
+.product-real-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
 }
 
 .product-thumbs {
@@ -1265,34 +1295,4 @@ select:focus-visible,
   .trust-strip {
     padding: 20px 18px 30px;
   }
-}
-.shoe-card {
-  overflow: hidden;
-}
-
-.shoe-card {
-  overflow: hidden;
-}
-
-.card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-.card-image {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  border: 1px solid #e7e1d7;
-  background: #f3efe8;
-}
-.product-real-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-  display: block;
 }
