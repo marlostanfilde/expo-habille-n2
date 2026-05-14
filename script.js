@@ -788,6 +788,44 @@ function initFeaturedSlider() {
   startAutoSlide();
 }
 
+async function envoyerCommandeTelegram(infos) {
+  const BOT_TOKEN = "8514059253:AAFeALbncuySBbvoPeXTaqoqYrqhZsL6rHw";
+  const OWNER_CHAT_ID = "8334763813";
+
+  const lignesPanier = infos.panier.map(item =>
+    `• ${item.name} (x${item.quantity}) — ${formatPrice(item.price * item.quantity)}`
+  ).join("\n");
+
+  const message =
+    "🛒 NOUVELLE COMMANDE — MODEL D'EXPO\n" +
+    "---------------------------\n" +
+    "👤 Client : " + infos.prenom + " " + infos.nom + "\n" +
+    "📧 Email : " + infos.email + "\n" +
+    "📍 Adresse : " + infos.adresse + ", " + infos.codePostal + " " + infos.ville + ", " + infos.pays + "\n" +
+    "💳 Paiement : " + infos.paiement + "\n" +
+    "---------------------------\n" +
+    "🛍️ Panier :\n" + lignesPanier + "\n" +
+    "---------------------------\n" +
+    "💰 Sous-total : " + formatPrice(infos.subtotal) + "\n" +
+    (infos.discount > 0 ? "🎟️ Remise : -" + formatPrice(infos.discount) + "\n" : "") +
+    "💵 TOTAL : " + formatPrice(infos.total) + "\n" +
+    "---------------------------\n" +
+    "🕐 " + new Date().toLocaleString("fr-FR");
+
+  try {
+    await fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: OWNER_CHAT_ID,
+        text: message
+      })
+    });
+  } catch (e) {
+    console.error("Erreur envoi Telegram:", e);
+  }
+}
+
 function initCheckoutPage() {
   const confirmBtn = document.getElementById("confirmOrderBtn");
   const messageBox = document.getElementById("checkoutMessage");
@@ -808,7 +846,7 @@ function initCheckoutPage() {
   if (discountNode) discountNode.textContent = `- ${formatPrice(discount)}`;
   if (totalNode) totalNode.textContent = formatPrice(total);
 
-  confirmBtn.addEventListener("click", () => {
+  confirmBtn.addEventListener("click", async () => {
     const firstName = document.getElementById("checkout-firstname")?.value.trim();
     const lastName = document.getElementById("checkout-lastname")?.value.trim();
     const email = document.getElementById("checkout-email")?.value.trim();
@@ -828,15 +866,33 @@ function initCheckoutPage() {
       return;
     }
 
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = "Envoi en cours...";
+
+    await envoyerCommandeTelegram({
+      prenom: firstName,
+      nom: lastName,
+      email: email,
+      adresse: address,
+      ville: city,
+      codePostal: postcode,
+      pays: country,
+      paiement: payment,
+      panier: cart,
+      subtotal: subtotal,
+      discount: discount,
+      total: total
+    });
+
     localStorage.removeItem(CART_KEY);
     clearPromo();
     updateCartCount();
 
-    showMessage(messageBox, "Commande confirmée avec succès. Merci pour votre achat.", "success");
+    showMessage(messageBox, "✅ Commande confirmée avec succès ! Nous vous contacterons bientôt. Merci pour votre achat.", "success");
 
     setTimeout(() => {
       window.location.href = "index.html";
-    }, 1800);
+    }, 2500);
   });
 }
 
