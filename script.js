@@ -659,10 +659,35 @@ function initDynamicProductPage() {
   addBtn.dataset.image = image;
   addBtn.dataset.category = finalCategory;
 
+  // Remplir les tailles selon la catégorie
+  const sizeSelect = document.getElementById("product-size");
+  const sizeLabelEl = document.getElementById("product-size-label");
+
+  const taillesVetements = ["S", "M", "L", "XL", "XXL"];
+  const taillesChaussures = ["38", "39", "40", "41", "42", "43", "44", "45", "46"];
+  const taillesAccessoires = ["Taille unique"];
+
+  let tailles = taillesVetements;
+  let labelTaille = "Taille";
+
   if (finalCategory.toLowerCase().includes("chauss")) {
-    if (sizeLabel) sizeLabel.textContent = "Pointure";
-  } else {
-    if (sizeLabel) sizeLabel.textContent = "Taille";
+    tailles = taillesChaussures;
+    labelTaille = "Pointure";
+  } else if (finalCategory.toLowerCase().includes("accessoire")) {
+    tailles = taillesAccessoires;
+    labelTaille = "Taille";
+  }
+
+  if (sizeLabelEl) sizeLabelEl.textContent = labelTaille;
+
+  if (sizeSelect) {
+    sizeSelect.innerHTML = '<option value="">Choisir une ' + labelTaille.toLowerCase() + '</option>';
+    tailles.forEach(t => {
+      const opt = document.createElement("option");
+      opt.value = t;
+      opt.textContent = t;
+      sizeSelect.appendChild(opt);
+    });
   }
 
   document.title = `${name} | MODEL D'EXPO`;
@@ -789,7 +814,7 @@ function initFeaturedSlider() {
 }
 
 function initCheckoutPage() {
-  const WHATSAPP_NUMBER = "33661963536"; // Ton numéro WhatsApp (format international sans +)
+  const WHATSAPP_NUMBER = "33661963536";
 
   const confirmBtn = document.getElementById("confirmOrderBtn");
   const messageBox = document.getElementById("checkoutMessage");
@@ -830,7 +855,6 @@ function initCheckoutPage() {
       return;
     }
 
-    // Construction du message WhatsApp
     const lignesPanier = cart.map(item =>
       `• ${item.name} (x${item.quantity}) — ${formatPrice(item.price * item.quantity)}`
     ).join("\n");
@@ -850,14 +874,12 @@ function initCheckoutPage() {
       "----------------------------\n" +
       "🕐 " + new Date().toLocaleString("fr-FR");
 
-    // Vider le panier
     localStorage.removeItem(CART_KEY);
     clearPromo();
     updateCartCount();
 
     showMessage(messageBox, "✅ Commande enregistrée ! WhatsApp va s'ouvrir avec votre récapitulatif.", "success");
 
-    // Ouvrir WhatsApp avec le message
     const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
     setTimeout(() => {
       window.open(url, "_blank");
