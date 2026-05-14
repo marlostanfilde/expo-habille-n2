@@ -788,45 +788,9 @@ function initFeaturedSlider() {
   startAutoSlide();
 }
 
-async function envoyerCommandeTelegram(infos) {
-  const BOT_TOKEN = "8514059253:AAFeALbncuySBbvoPeXTaqoqYrqhZsL6rHw";
-  const OWNER_CHAT_ID = "8334763813";
-
-  const lignesPanier = infos.panier.map(item =>
-    `• ${item.name} (x${item.quantity}) — ${formatPrice(item.price * item.quantity)}`
-  ).join("\n");
-
-  const message =
-    "🛒 NOUVELLE COMMANDE — MODEL D'EXPO\n" +
-    "---------------------------\n" +
-    "👤 Client : " + infos.prenom + " " + infos.nom + "\n" +
-    "📧 Email : " + infos.email + "\n" +
-    "📍 Adresse : " + infos.adresse + ", " + infos.codePostal + " " + infos.ville + ", " + infos.pays + "\n" +
-    "💳 Paiement : " + infos.paiement + "\n" +
-    "---------------------------\n" +
-    "🛍️ Panier :\n" + lignesPanier + "\n" +
-    "---------------------------\n" +
-    "💰 Sous-total : " + formatPrice(infos.subtotal) + "\n" +
-    (infos.discount > 0 ? "🎟️ Remise : -" + formatPrice(infos.discount) + "\n" : "") +
-    "💵 TOTAL : " + formatPrice(infos.total) + "\n" +
-    "---------------------------\n" +
-    "🕐 " + new Date().toLocaleString("fr-FR");
-
-  try {
-    await fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: OWNER_CHAT_ID,
-        text: message
-      })
-    });
-  } catch (e) {
-    console.error("Erreur envoi Telegram:", e);
-  }
-}
-
 function initCheckoutPage() {
+  const WHATSAPP_NUMBER = "33661963536"; // Ton numéro WhatsApp (format international sans +)
+
   const confirmBtn = document.getElementById("confirmOrderBtn");
   const messageBox = document.getElementById("checkoutMessage");
   const subtotalNode = document.querySelector('[data-checkout="subtotal"]');
@@ -846,7 +810,7 @@ function initCheckoutPage() {
   if (discountNode) discountNode.textContent = `- ${formatPrice(discount)}`;
   if (totalNode) totalNode.textContent = formatPrice(total);
 
-  confirmBtn.addEventListener("click", async () => {
+  confirmBtn.addEventListener("click", () => {
     const firstName = document.getElementById("checkout-firstname")?.value.trim();
     const lastName = document.getElementById("checkout-lastname")?.value.trim();
     const email = document.getElementById("checkout-email")?.value.trim();
@@ -866,29 +830,38 @@ function initCheckoutPage() {
       return;
     }
 
-    confirmBtn.disabled = true;
-    confirmBtn.textContent = "Envoi en cours...";
+    // Construction du message WhatsApp
+    const lignesPanier = cart.map(item =>
+      `• ${item.name} (x${item.quantity}) — ${formatPrice(item.price * item.quantity)}`
+    ).join("\n");
 
-    await envoyerCommandeTelegram({
-      prenom: firstName,
-      nom: lastName,
-      email: email,
-      adresse: address,
-      ville: city,
-      codePostal: postcode,
-      pays: country,
-      paiement: payment,
-      panier: cart,
-      subtotal: subtotal,
-      discount: discount,
-      total: total
-    });
+    const message =
+      "🛒 *NOUVELLE COMMANDE — MODEL D'EXPO*\n" +
+      "----------------------------\n" +
+      "👤 *Client :* " + firstName + " " + lastName + "\n" +
+      "📧 *Email :* " + email + "\n" +
+      "📍 *Adresse :* " + address + ", " + postcode + " " + city + ", " + country + "\n" +
+      "💳 *Paiement :* " + payment + "\n" +
+      "----------------------------\n" +
+      "🛍️ *Panier :*\n" + lignesPanier + "\n" +
+      "----------------------------\n" +
+      (discount > 0 ? "🎟️ *Remise :* -" + formatPrice(discount) + "\n" : "") +
+      "💰 *TOTAL : " + formatPrice(total) + "*\n" +
+      "----------------------------\n" +
+      "🕐 " + new Date().toLocaleString("fr-FR");
 
+    // Vider le panier
     localStorage.removeItem(CART_KEY);
     clearPromo();
     updateCartCount();
 
-    showMessage(messageBox, "✅ Commande confirmée avec succès ! Nous vous contacterons bientôt. Merci pour votre achat.", "success");
+    showMessage(messageBox, "✅ Commande enregistrée ! WhatsApp va s'ouvrir avec votre récapitulatif.", "success");
+
+    // Ouvrir WhatsApp avec le message
+    const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+    setTimeout(() => {
+      window.open(url, "_blank");
+    }, 800);
 
     setTimeout(() => {
       window.location.href = "index.html";
