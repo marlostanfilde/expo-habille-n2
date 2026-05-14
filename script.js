@@ -855,9 +855,12 @@ function initCheckoutPage() {
       return;
     }
 
-    const lignesPanier = cart.map(item =>
-      `• ${item.name} (x${item.quantity}) — ${formatPrice(item.price * item.quantity)}`
-    ).join("\n");
+    const lignesPanier = cart.map(item => {
+      const taille = item.category && item.category.includes("Taille") 
+        ? " — " + item.category.split("· ")[1] 
+        : "";
+      return `• ${item.name}${taille} (x${item.quantity}) — ${formatPrice(item.price * item.quantity)}`;
+    }).join("\n");
 
     const message =
       "🛒 *NOUVELLE COMMANDE — MODEL D'EXPO*\n" +
