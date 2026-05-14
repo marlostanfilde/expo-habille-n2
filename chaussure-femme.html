@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chaussures Femme - MODEL D'EXPO</title>
+  <link rel="stylesheet" href="./style.css?v=12" />
+  <script src="./script.js?v=12" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <div class="topbar">Bienvenue chez MODEL D'EXPO | Livraison offerte dans toute la France</div>
+    <header class="header">
+      <div class="header-left">
+        <button class="icon-btn" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="mobileMenu" aria-expanded="false" type="button">☰</button>
+        <button class="icon-btn" id="searchToggle" aria-label="Ouvrir la recherche" aria-controls="searchBar" aria-expanded="false" type="button">⌕</button>
+      </div>
+      <div class="logo-wrap">
+        <a href="index.html" class="logo-link"><div class="logo">MODEL D'EXPO</div><div class="logo-sub">depuis 1897</div></a>
+      </div>
+      <div class="header-right">
+        <a href="compte.html" class="icon-btn icon-link">👤</a>
+        <a href="panier.html" class="icon-btn cart-btn icon-link">🛍<span class="cart-count">0</span></a>
+      </div>
+    </header>
+    <div class="search-bar" id="searchBar">
+      <input type="text" placeholder="Rechercher un produit..." />
+      <button type="button">Rechercher</button>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-main" id="mobileMenuMain">
+        <a href="index.html">Accueil</a>
+        <button class="mobile-submenu-toggle" id="hommeToggle" type="button" aria-controls="hommeSubmenu" aria-expanded="false">👔 Homme</button>
+        <button class="mobile-submenu-toggle" id="femmeToggle" type="button" aria-controls="femmeSubmenu" aria-expanded="false">👗 Femme</button>
+        <a href="compte.html">Créer un compte</a>
+        <a href="panier.html">Voir le panier</a>
+      </div>
+      <div class="mobile-submenu is-hidden" id="hommeSubmenu">
+        <button class="mobile-back-btn" id="backToMainMenu" type="button">← Retour</button>
+        <a href="tshirts.html">T-shirts</a><a href="jeans.html">Jean</a><a href="shorts.html">Short</a><a href="pulls.html">Pull</a><a href="chaussure.html">Chaussures</a><a href="accessoire.html">Accessoires</a>
+      </div>
+      <div class="mobile-submenu is-hidden" id="femmeSubmenu">
+        <button class="mobile-back-btn" id="backToMainMenu2" type="button">← Retour</button>
+        <a href="tshirts-femme.html">T-shirts</a><a href="robes.html">Robes</a><a href="pulls-femme.html">Pulls</a><a href="chaussure-femme.html">Chaussures</a><a href="accessoire-femme.html">Accessoires</a>
+      </div>
+    </nav>
+
+    <section class="page-section">
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a><span>/</span><span>Femme</span><span>/</span><span>Chaussures</span>
+      </div>
+      <h1 class="page-title">Chaussures Femme</h1>
+      <div class="product-grid">
+
+        <article class="card shoe-card">
+          <a href="produit.html?name=Sneaker%20New%20Balance%20femme&price=139&image=https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format%26fit=crop%26w=900%26q=80&brand=New%20Balance&ref=NB-F-530&color=Blanc%20Rose&material=Mesh&description=Un%20classique%20r%C3%A9vis%C3%A9%20en%20version%20f%C3%A9minine%2C%20l%C3%A9ger%20et%20tendance.&category=Chaussures" class="card-link">
+            <img class="card-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Sneaker New Balance femme" />
+            <span class="card-tag">New Balance</span>
+            <h3>Sneaker New Balance femme</h3>
+            <p class="price">139,00 €</p>
+            <p class="card-text">Un classique revisité en version féminine, léger et tendance.</p>
+          </a>
+          <button class="btn small-btn add-to-cart-btn" data-name="Sneaker New Balance femme" data-price="139" data-category="Chaussures" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" type="button">Ajouter au panier</button>
+        </article>
+
+        <article class="card shoe-card">
+          <a href="produit.html?name=Escarpins%20Mango&price=89&image=https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format%26fit=crop%26w=900%26q=80&brand=Mango&ref=ESCARPINS-MANGO&color=Noir&material=Cuir%20verni&description=Des%20escarpins%20classiques%20et%20%C3%A9l%C3%A9gants%20pour%20toutes%20vos%20occasions.&category=Chaussures" class="card-link">
+            <img class="card-image" src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=80" alt="Escarpins Mango" />
+            <span class="card-tag">Mango</span>
+            <h3>Escarpins Mango</h3>
+            <p class="price">89,00 €</p>
+            <p class="card-text">Des escarpins classiques et élégants pour toutes vos occasions.</p>
+          </a>
+          <button class="btn small-btn add-to-cart-btn" data-name="Escarpins Mango" data-price="89" data-category="Chaussures" data-image="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=80" type="button">Ajouter au panier</button>
+        </article>
+
+        <article class="card shoe-card">
+          <a href="produit.html?name=Baskets%20Adidas%20femme&price=119&image=https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format%26fit=crop%26w=900%26q=80&brand=Adidas&ref=ADIDAS-F-SAMBA&color=Blanc%20Gris&material=Cuir&description=La%20sneaker%20iconique%20Adidas%20revisit%C3%A9e%20pour%20la%20femme%20moderne.&category=Chaussures" class="card-link">
+            <img class="card-image" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=80" alt="Baskets Adidas femme" />
+            <span class="card-tag">Adidas</span>
+            <h3>Baskets Adidas femme</h3>
+            <p class="price">119,00 €</p>
+            <p class="card-text">La sneaker iconique Adidas revisitée pour la femme moderne.</p>
+          </a>
+          <button class="btn small-btn add-to-cart-btn" data-name="Baskets Adidas femme" data-price="119" data-category="Chaussures" data-image="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=80" type="button">Ajouter au panier</button>
+        </article>
+
+        <article class="card shoe-card">
+          <a href="produit.html?name=Bottines%20Zara&price=99&image=https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format%26fit=crop%26w=900%26q=80&brand=Zara&ref=BOTTINES-ZARA&color=Camel&material=Cuir&description=Des%20bottines%20tendance%20et%20confortables%20pour%20toutes%20vos%20tenues.&category=Chaussures" class="card-link">
+            <img class="card-image" src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format&fit=crop&w=900&q=80" alt="Bottines Zara" />
+            <span class="card-tag">Zara</span>
+            <h3>Bottines Zara</h3>
+            <p class="price">99,00 €</p>
+            <p class="card-text">Des bottines tendance et confortables pour toutes vos tenues.</p>
+          </a>
+          <button class="btn small-btn add-to-cart-btn" data-name="Bottines Zara" data-price="99" data-category="Chaussures" data-image="https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format&fit=crop&w=900&q=80" type="button">Ajouter au panier</button>
+        </article>
+
+      </div>
+    </section>
+    <footer class="footer"><p>© 2026 MODEL D'EXPO - Tous droits réservés</p></footer>
+  </div>
+</body>
+</html>

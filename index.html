@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MODEL D'EXPO</title>
+  <link rel="stylesheet" href="./style.css?v=12" />
+  <script src="./script.js?v=12" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <div class="topbar">
+      Bienvenue chez MODEL D'EXPO | Livraison offerte dans toute la France
+    </div>
+
+    <header class="header">
+      <div class="header-left">
+        <button
+          class="icon-btn"
+          id="menuToggle"
+          aria-label="Ouvrir le menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+          type="button"
+        >
+          ☰
+        </button>
+
+        <button
+          class="icon-btn"
+          id="searchToggle"
+          aria-label="Ouvrir la recherche"
+          aria-controls="searchBar"
+          aria-expanded="false"
+          type="button"
+        >
+          ⌕
+        </button>
+      </div>
+
+      <div class="logo-wrap">
+        <a href="index.html" class="logo-link" aria-label="Retour à l'accueil MODEL D'EXPO">
+          <div class="logo">MODEL D'EXPO</div>
+          <div class="logo-sub">depuis 1897</div>
+        </a>
+      </div>
+
+      <div class="header-right">
+        <a href="compte.html" class="icon-btn icon-link" aria-label="Compte">👤</a>
+        <a href="panier.html" class="icon-btn cart-btn icon-link" aria-label="Panier">
+          🛍
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="search-bar" id="searchBar">
+      <input type="text" placeholder="Rechercher un produit..." aria-label="Rechercher un produit" />
+      <button type="button">Rechercher</button>
+    </div>
+
+        <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
+      <div class="mobile-menu-main" id="mobileMenuMain">
+        <a href="index.html">Accueil</a>
+        <button class="mobile-submenu-toggle" id="hommeToggle" type="button" aria-controls="hommeSubmenu" aria-expanded="false">👔 Homme</button>
+        <button class="mobile-submenu-toggle" id="femmeToggle" type="button" aria-controls="femmeSubmenu" aria-expanded="false">👗 Femme</button>
+        <a href="compte.html">Créer un compte</a>
+        <a href="panier.html">Voir le panier</a>
+      </div>
+      <div class="mobile-submenu is-hidden" id="hommeSubmenu">
+        <button class="mobile-back-btn" id="backToMainMenu" type="button">← Retour</button>
+        <a href="tshirts.html">T-shirts</a>
+        <a href="jeans.html">Jean</a>
+        <a href="shorts.html">Short</a>
+        <a href="pulls.html">Pull</a>
+        <a href="chaussure.html">Chaussures</a>
+        <a href="accessoire.html">Accessoires</a>
+      </div>
+      <div class="mobile-submenu is-hidden" id="femmeSubmenu">
+        <button class="mobile-back-btn" id="backToMainMenu2" type="button">← Retour</button>
+        <a href="tshirts-femme.html">T-shirts</a>
+        <a href="robes.html">Robes</a>
+        <a href="pulls-femme.html">Pulls</a>
+        <a href="chaussure-femme.html">Chaussures</a>
+        <a href="accessoire-femme.html">Accessoires</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Maison MODEL D'EXPO</span>
+        <h1>Nouvelle collection homme</h1>
+        <p>Mode, chaussures, accessoires et pièces cérémonie au style intemporel.</p>
+      </div>
+    </section>
+
+    <section class="featured-look" id="produits">
+      <div class="featured-look-media">
+        <div class="featured-slider" id="featuredSlider">
+          <div class="featured-slide active">
+            <img
+              src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1400&q=80"
+              alt="Veste homme style premium"
+            />
+          </div>
+
+          <div class="featured-slide">
+            <img
+              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=80"
+              alt="Deuxième vue veste homme style urbain"
+            />
+          </div>
+        </div>
+
+        <div class="featured-slider-controls">
+          <button type="button" class="featured-arrow" id="featuredPrev" aria-label="Image précédente">←</button>
+          <button type="button" class="featured-arrow" id="featuredNext" aria-label="Image suivante">→</button>
+        </div>
+      </div>
+
+      <div class="featured-look-content">
+        <h2>Veste signature</h2>
+        <p>
+          Une silhouette inspirée du vestiaire outerwear premium : coupe nette, présence forte,
+          allure urbaine et détails techniques.
+        </p>
+      </div>
+    </section>
+
+    <section class="appointment" id="pretaporter">
+      <h2>Prendre rendez-vous</h2>
+      <p>Profitez d’un accompagnement personnalisé en boutique pour choisir la pièce idéale.</p>
+      <a href="compte.html" class="btn dark">Réserver</a>
+    </section>
+
+    <section class="trust-strip trust-strip-bottom">
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <h3>Paiement sécurisé</h3>
+        <p>Transactions protégées et parcours d’achat fiable.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">🚚</div>
+        <h3>Livraison express</h3>
+        <p>Expédition rapide partout en France.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">↩</div>
+        <h3>Retours gratuits</h3>
+        <p>Retour possible sous 14 jours après réception.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">☎</div>
+        <h3>Service client</h3>
+        <p>Une équipe disponible pour vous accompagner.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 MODEL D'EXPO - Tous droits réservés</p>
+    </footer>
+  </div>
+</body>
+</html>

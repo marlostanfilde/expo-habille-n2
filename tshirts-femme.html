@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T-shirts Femme - MODEL D'EXPO</title>
+  <link rel="stylesheet" href="./style.css?v=12" />
+  <script src="./script.js?v=12" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <div class="topbar">Bienvenue chez MODEL D'EXPO | Livraison offerte dans toute la France</div>
+
+    <header class="header">
+      <div class="header-left">
+        <button class="icon-btn" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="mobileMenu" aria-expanded="false" type="button">☰</button>
+        <button class="icon-btn" id="searchToggle" aria-label="Ouvrir la recherche" aria-controls="searchBar" aria-expanded="false" type="button">⌕</button>
+      </div>
+      <div class="logo-wrap">
+        <a href="index.html" class="logo-link" aria-label="Retour à l'accueil MODEL D'EXPO">
+          <div class="logo">MODEL D'EXPO</div>
+          <div class="logo-sub">depuis 1897</div>
+        </a>
+      </div>
+      <div class="header-right">
+        <a href="compte.html" class="icon-btn icon-link" aria-label="Compte">👤</a>
+        <a href="panier.html" class="icon-btn cart-btn icon-link" aria-label="Panier">🛍<span class="cart-count">0</span></a>
+      </div>
+    </header>
+
+    <div class="search-bar" id="searchBar">
+      <input type="text" placeholder="Rechercher un produit..." aria-label="Rechercher un produit" />
+      <button type="button">Rechercher</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Navigation mobile">
+      <div class="mobile-menu-main" id="mobileMenuMain">
+        <a href="index.html">Accueil</a>
+        <button class="mobile-submenu-toggle" id="hommeToggle" type="button" aria-controls="hommeSubmenu" aria-expanded="false">👔 Homme</button>
+        <button class="mobile-submenu-toggle" id="femmeToggle" type="button" aria-controls="femmeSubmenu" aria-expanded="false">👗 Femme</button>
+        <a href="compte.html">Créer un compte</a>
+        <a href="panier.html">Voir le panier</a>
+      </div>
+      <div class="mobile-submenu is-hidden" id="hommeSubmenu">
+        <button class="mobile-back-btn" id="backToMainMenu" type="button">← Retour</button>
+        <a href="tshirts.html">T-shirts</a>
+        <a href="jeans.html">Jean</a>
+        <a href="shorts.html">Short</a>
+        <a href="pulls.html">Pull</a>
+        <a href="chaussure.html">Chaussures</a>
+        <a href="accessoire.html">Accessoires</a>
+      </div>
+      <div class="mobile-submenu is-hidden" id="femmeSubmenu">
+        <button class="mobile-back-btn" id="backToMainMenu2" type="button">← Retour</button>
+        <a href="tshirts-femme.html">T-shirts</a>
+        <a href="robes.html">Robes</a>
+        <a href="pulls-femme.html">Pulls</a>
+        <a href="chaussure-femme.html">Chaussures</a>
+        <a href="accessoire-femme.html">Accessoires</a>
+      </div>
+    </nav>
+
+    <section class="page-section">
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a><span>/</span>
+        <span>Femme</span><span>/</span>
+        <span>T-shirts</span>
+      </div>
+      <h1 class="page-title">T-shirts Femme</h1>
+      <div class="product-grid">
+
+        <article class="card shoe-card">
+          <a href="produit.html?name=T-shirt%20basic%20femme&price=45&image=https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format%26fit=crop%26w=900%26q=80&brand=Calvin%20Klein&ref=TSHIRT-F-BASIC&color=Blanc&material=Coton&description=Un%20essentiel%20f%C3%A9minin%20%C3%A0%20la%20coupe%20ajust%C3%A9e%20et%20au%20toucher%20doux.&category=T-shirts" class="card-link">
+            <img class="card-image" src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=900&q=80" alt="T-shirt basic femme" />
+            <span class="card-tag">Calvin Klein</span>
+            <h3>T-shirt basic femme</h3>
+            <p class="price">45,00 €</p>
+            <p class="card-text">Un essentiel féminin à la coupe ajustée et au toucher doux.</p>
+          </a>
+          <button class="btn small-btn add-to-cart-btn" data-name="T-shirt basic femme" data-price="45" data-category="T-shirts" data-image="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=900&q=80" type="button">Ajouter au panier</button>
+        </article>
+
+        <article class="card shoe-card">
+          <a href="produit.html?name=Top%20Zara%20premium&price=39&image=https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format%26fit=crop%26w=900%26q=80&brand=Zara&ref=TOP-ZARA&color=Noir&material=Coton%20stretch&description=Un%20top%20tendance%20%C3%A0%20la%20silhouette%20moderne%20et%20f%C3%A9minine.&category=T-shirts" class="card-link">
+            <img class="card-image" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Top Zara premium" />
+            <span class="card-tag">Zara</span>
+            <h3>Top Zara premium</h3>
+            <p class="price">39,00 €</p>
+            <p class="card-text">Un top tendance à la silhouette moderne et féminine.</p>
+          </a>
+          <button class="btn small-btn add-to-cart-btn" data-name="Top Zara premium" data-price="39" data-category="T-shirts" data-image="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" type="button">Ajouter au panier</button>
+        </article>
+
+        <article class="card shoe-card">
+          <a href="produit.html?name=T-shirt%20oversize%20femme&price=55&image=https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format%26fit=crop%26w=900%26q=80&brand=Tommy%20Hilfiger&ref=TSHIRT-F-OVERSIZE&color=Beige&material=Coton%20premium&description=Un%20t-shirt%20oversize%20chic%20pour%20un%20look%20casual%20et%20tendance.&category=T-shirts" class="card-link">
+            <img class="card-image" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" alt="T-shirt oversize femme" />
+            <span class="card-tag">Tommy Hilfiger</span>
+            <h3>T-shirt oversize femme</h3>
+            <p class="price">55,00 €</p>
+            <p class="card-text">Un t-shirt oversize chic pour un look casual et tendance.</p>
+          </a>
+          <button class="btn small-btn add-to-cart-btn" data-name="T-shirt oversize femme" data-price="55" data-category="T-shirts" data-image="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" type="button">Ajouter au panier</button>
+        </article>
+
+      </div>
+    </section>
+
+    <footer class="footer"><p>© 2026 MODEL D'EXPO - Tous droits réservés</p></footer>
+  </div>
+</body>
+</html>
